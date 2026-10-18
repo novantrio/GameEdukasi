@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <meta name="theme-color" content="#38BDF8" />
+    <title>Petualangan Logika Cilik 🌟 Asesmen Kognitif Usia 4 Tahun</title>
+    <!-- Friendly Google Fonts for children readability -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;600;700&family=Nunito:wght@700;800;900&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="./src/style.css" />
+  </head>
+  <body>
+    <!-- Floating Background Decor -->
+    <div class="decor-layer" aria-hidden="true">
+      <div class="cloud cloud-1">☁️</div>
+      <div class="cloud cloud-2">☁️</div>
+      <div class="cloud cloud-3">🌤️</div>
+      <div class="bubble bubble-1"></div>
+      <div class="bubble bubble-2"></div>
+      <div class="bubble bubble-3"></div>
+      <div class="bubble bubble-4"></div>
+    </div>
+
+    <!-- App Container -->
+    <div id="app" class="game-wrapper">
+      <!-- Header Toolbar -->
+      <header class="app-header">
+        <div class="header-left">
+          <button id="btn-home" class="circle-btn home-btn" title="Kembali ke Beranda" aria-label="Menu Utama">
+            🏠
+          </button>
+          <div class="student-profile-badge" id="btn-student-name" role="button" tabindex="0" title="Klik untuk mengganti nama dan usia peserta">
+            <span class="student-badge-icon">👦</span>
+            <div class="student-text-group">
+              <span class="student-label">Peserta Asesmen:</span>
+              <span id="display-student-name" class="student-name-val">Ananda Cerdas</span>
+            </div>
+            <span class="student-edit-pen">✏️</span>
+          </div>
+          <button id="btn-header-age" class="header-age-pill" title="Ubah Kelompok Usia Asesmen (4 Th / 7 Th)">
+            <span id="header-age-text">🎈 Usia 4 Th</span>
+          </button>
+        </div>
+
+        <div class="header-center">
+          <div class="stars-counter" title="Bintang yang kamu kumpulkan!">
+            <span class="star-icon">⭐</span>
+            <span id="star-count" class="star-number">0</span>
+          </div>
+        </div>
+
+        <div class="header-right">
+          <button id="btn-sound" class="circle-btn sound-btn" title="Suara Musik & Efek" aria-label="Bisu Suara">
+            🔊
+          </button>
+          <button id="btn-help" class="circle-btn help-btn" title="Dengarkan Petunjuk Suara" aria-label="Ulangi Instruksi">
+            🗣️
+          </button>
+          <button id="btn-teacher-report" class="teacher-badge-btn" title="Laporan & Rapor Evaluasi Guru" aria-label="Rapor Guru">
+            👩‍🏫 <span class="teacher-btn-label">Rapor Guru</span>
+          </button>
+        </div>
+      </header>
+
+      <!-- Main Game Viewport -->
+      <main id="game-stage" class="game-stage">
+        <!-- Views dynamically injected here -->
+      </main>
+
+      <!-- Cheering Mascot speech banner -->
+      <footer id="mascot-feedback" class="mascot-feedback">
+        <div class="speech-bubble">
+          <p id="feedback-text">Hai teman pintar! Ayo pilih permainan logika seru bersama Kiki!</p>
+        </div>
+      </footer>
+    </div>
+
+    <!-- Celebration Modal -->
+    <dialog id="celebration-dialog" class="celebration-modal">
+      <div class="modal-card">
+        <div class="modal-sparkles">🎉 ⭐ 🎓 ⭐ 🎉</div>
+        <h2 id="modal-title" class="modal-title">TUGAS SELESAI!</h2>
+        <div class="modal-stars-award" id="modal-stars-row">
+          <span class="award-star">⭐</span>
+          <span class="award-star">⭐</span>
+          <span class="award-star">⭐</span>
+        </div>
+        <p id="modal-desc" class="modal-desc">Tugas ini telah selesai dievaluasi.</p>
+        <div class="modal-actions">
+          <button id="btn-celebration-home" class="kid-btn btn-secondary">
+            🏠 Kembali ke Menu Utama
+          </button>
+          <button id="btn-celebration-report" class="kid-btn btn-teacher">
+            👩‍🏫 Buka Rapor Penilaian Guru
+          </button>
+        </div>
+      </div>
+    </dialog>
+
+    <!-- Student Name Dialog -->
+    <dialog id="student-name-dialog" class="student-name-modal">
+      <div class="student-name-card">
+        <h3 class="student-modal-title">📝 Data Peserta Asesmen</h3>
+        <p class="student-modal-desc">Masukkan nama siswa dan pilih kelompok usia asesmen:</p>
+        <div class="input-field-group">
+          <label for="input-student-name">Nama Peserta / Siswa:</label>
+          <input type="text" id="input-student-name" placeholder="Contoh: Budi Santoso" maxlength="30" autocomplete="off" />
+        </div>
+        <div class="input-field-group" style="margin-top: 14px;">
+          <label>Fase / Kelompok Usia:</label>
+          <div class="modal-age-radios">
+            <label class="age-radio-card">
+              <input type="radio" name="modal-age-select" value="4" />
+              <div class="age-radio-label">
+                <strong>🎈 Usia 4 Tahun</strong>
+                <span>PAUD / TK-A (STPPA Kognitif)</span>
+              </div>
+            </label>
+            <label class="age-radio-card">
+              <input type="radio" name="modal-age-select" value="7" />
+              <div class="age-radio-label">
+                <strong>🚀 Usia 7 Tahun</strong>
+                <span>SD Kelas 1-2 (Logika & Sains Fase A)</span>
+              </div>
+            </label>
+          </div>
+        </div>
+        <div class="modal-actions">
+          <button id="btn-save-student-name" class="kid-btn btn-primary">
+            💾 Simpan Data
+          </button>
+          <button id="btn-cancel-student-name" class="kid-btn btn-secondary">
+            Batal
+          </button>
+        </div>
+      </div>
+    </dialog>
+
+    <!-- Teacher Report Modal -->
+    <dialog id="teacher-report-dialog" class="teacher-report-modal"></dialog>
+
+    <script type="module" src="./src/main.js"></script>
+  </body>
+</html>

@@ -1,0 +1,503 @@
+// src/constants/gameData.js
+
+export const GAMES_INFO = Object.freeze([
+  {
+    id: 'shapes',
+    title: 'Cocokkan Bentuk & Ruang',
+    subtitleAge4: 'Tarik & pasang bentuk dasar ke bayangannya!',
+    subtitleAge7: 'Analisis geometri bangun datar, ruang, dan jumlah sisi!',
+    icon: '🔷',
+    badge: 'Geometri',
+    color: '#3B82F6'
+  },
+  {
+    id: 'sizes',
+    title: 'Urutan & Seriasi Logis',
+    subtitleAge4: 'Urutkan benda dari yang paling kecil ke paling besar!',
+    subtitleAge7: 'Urutkan beban berat, satuan waktu, dan nilai kuantitas!',
+    icon: '🐻',
+    badge: 'Seriasi',
+    color: '#10B981'
+  },
+  {
+    id: 'patterns',
+    title: 'Tebak Pola & Deret',
+    subtitleAge4: 'Lengkapi pola warna & benda berulang yang hilang!',
+    subtitleAge7: 'Pecahkan deret bilangan loncat, pola bertingkat & rotasi!',
+    icon: '🔮',
+    badge: 'Pola Bilangan',
+    color: '#8B5CF6'
+  },
+  {
+    id: 'odd-one',
+    title: 'Klasifikasi & Eliminasi',
+    subtitleAge4: 'Mana hewan atau benda yang berbeda kelompok?',
+    subtitleAge7: 'Analisis taksonomi: wujud zat, rantai makanan & konduktor!',
+    icon: '🔍',
+    badge: 'Klasifikasi',
+    color: '#F59E0B'
+  },
+  {
+    id: 'animal-habitats',
+    title: 'Sebab-Akibat & Sains Alam',
+    subtitleAge4: 'Bantu hewan menemukan tempat tinggal & makanannya!',
+    subtitleAge7: 'Hubungan rantai makanan, fotosintesis & siklus ekosistem!',
+    icon: '🦁',
+    badge: 'Sains Logika',
+    color: '#EC4899'
+  },
+  {
+    id: 'counting',
+    title: 'Penalaran Matematika Cilik',
+    subtitleAge4: 'Berapa banyak buah dan teman yang ada di sini?',
+    subtitleAge7: 'Pecahkan teka-teki aljabar visual, perkalian & bagi rata!',
+    icon: '🍎',
+    badge: 'Matematika',
+    color: '#06B6D4'
+  }
+]);
+
+// ==========================================
+// 1. SHAPES (Bentuk & Geometri)
+// ==========================================
+export const SHAPE_LEVELS_AGE_4 = Object.freeze([
+  {
+    prompt: 'Pasangkan bentuk ke bayangan yang sama!',
+    items: [
+      { id: 'circle', name: 'Lingkaran Merah', shape: 'circle', color: '#EF4444', emoji: '🔴' },
+      { id: 'square', name: 'Persegi Biru', shape: 'square', color: '#3B82F6', emoji: '🟦' },
+      { id: 'triangle', name: 'Segitiga Hijau', shape: 'triangle', color: '#10B981', emoji: '🔺' }
+    ]
+  },
+  {
+    prompt: 'Pasangkan bintang, hati, dan lingkaran pada bayangannya!',
+    items: [
+      { id: 'star', name: 'Bintang Kuning', shape: 'star', color: '#F59E0B', emoji: '⭐' },
+      { id: 'heart', name: 'Hati Pink', shape: 'heart', color: '#EC4899', emoji: '💖' },
+      { id: 'circle-orange', name: 'Lingkaran Oranye', shape: 'circle', color: '#F97316', emoji: '🟠' }
+    ]
+  },
+  {
+    prompt: 'Tarik bentuk geometri ke bayangan yang cocok!',
+    items: [
+      { id: 'diamond', name: 'Wajik Ungu', shape: 'diamond', color: '#8B5CF6', emoji: '💎' },
+      { id: 'triangle-yellow', name: 'Segitiga Kuning', shape: 'triangle', color: '#FBBF24', emoji: '📐' },
+      { id: 'square-green', name: 'Persegi Hijau', shape: 'square', color: '#22C55E', emoji: '🟩' },
+      { id: 'star-blue', name: 'Bintang Biru', shape: 'star', color: '#0EA5E9', emoji: '🌟' }
+    ]
+  }
+]);
+
+export const SHAPE_LEVELS_AGE_7 = Object.freeze([
+  {
+    prompt: 'Pasangkan bangun datar tingkat lanjut: Segienam, Persegi Panjang, dan Jajar Genjang!',
+    items: [
+      { id: 'hexagon', name: 'Segienam (Hexagon 6 Sisi)', emoji: '🛑' },
+      { id: 'rectangle', name: 'Persegi Panjang (4 Sisi)', emoji: '📱' },
+      { id: 'rhombus', name: 'Belah Ketupat (Wajik Simetris)', emoji: '🔷' }
+    ]
+  },
+  {
+    prompt: 'Pasangkan bangun ruang: Kubus, Tabung/Silinder, dan Kerucut!',
+    items: [
+      { id: 'cube', name: 'Kubus (6 Sisi Persegi)', emoji: '🧊' },
+      { id: 'cylinder', name: 'Tabung / Silinder (2 Lingkaran)', emoji: '🥫' },
+      { id: 'cone', name: 'Kerucut (Alas Lingkaran & Titik Puncak)', emoji: '🍦' }
+    ]
+  },
+  {
+    prompt: 'Cocokkan bangun berdasarkan karakteristik jumlah sisinya: 3 Sisi, 4 Sisi, 5 Sisi, dan 6 Sisi!',
+    items: [
+      { id: 'side-3', name: 'Segitiga (Tiga Sisi)', emoji: '🔺' },
+      { id: 'side-4', name: 'Persegi (Empat Sisi Sama)', emoji: '⏹️' },
+      { id: 'side-5', name: 'Segilima / Pentagon (Lima Sisi)', emoji: '⬟' },
+      { id: 'side-6', name: 'Segienam / Hexagon (Enam Sisi)', emoji: '🛑' }
+    ]
+  }
+]);
+
+// ==========================================
+// 2. SIZES & SERIATION (Urutan & Seriasi)
+// ==========================================
+export const SIZE_LEVELS_AGE_4 = Object.freeze([
+  {
+    prompt: 'Urutkan beruang dari yang PALING KECIL ke PALING BESAR!',
+    type: 'ascending',
+    items: [
+      { id: 'bear-m', label: 'Beruang Sedang', sizeRank: 2, scale: 0.8, emoji: '🧸' },
+      { id: 'bear-s', label: 'Beruang Kecil', sizeRank: 1, scale: 0.55, emoji: '🧸' },
+      { id: 'bear-l', label: 'Beruang Besar', sizeRank: 3, scale: 1.1, emoji: '🧸' }
+    ]
+  },
+  {
+    prompt: 'Urutkan apel manis dari PALING KECIL ke PALING BESAR!',
+    type: 'ascending',
+    items: [
+      { id: 'apple-l', label: 'Apel Besar', sizeRank: 3, scale: 1.1, emoji: '🍎' },
+      { id: 'apple-s', label: 'Apel Kecil', sizeRank: 1, scale: 0.55, emoji: '🍎' },
+      { id: 'apple-m', label: 'Apel Sedang', sizeRank: 2, scale: 0.8, emoji: '🍎' }
+    ]
+  },
+  {
+    prompt: 'Urutkan 4 bintang ini dari KECIL ke BESAR!',
+    type: 'ascending',
+    items: [
+      { id: 'star-4', label: 'Sangat Besar', sizeRank: 4, scale: 1.25, emoji: '⭐' },
+      { id: 'star-1', label: 'Paling Kecil', sizeRank: 1, scale: 0.5, emoji: '⭐' },
+      { id: 'star-3', label: 'Besar', sizeRank: 3, scale: 1.0, emoji: '⭐' },
+      { id: 'star-2', label: 'Sedang', sizeRank: 2, scale: 0.75, emoji: '⭐' }
+    ]
+  }
+]);
+
+export const SIZE_LEVELS_AGE_7 = Object.freeze([
+  {
+    prompt: 'Urutkan makhluk hidup ini dari bobot PALING RINGAN ke PALING BERAT!',
+    items: [
+      { id: 'w-cat', label: 'Kucing (Sedang)', sizeRank: 2, scale: 0.75, emoji: '🐱' },
+      { id: 'w-ant', label: 'Semut (Paling Ringan)', sizeRank: 1, scale: 0.5, emoji: '🐜' },
+      { id: 'w-elephant', label: 'Gajah (Paling Berat)', sizeRank: 4, scale: 1.25, emoji: '🐘' },
+      { id: 'w-horse', label: 'Kuda (Berat)', sizeRank: 3, scale: 1.0, emoji: '🐴' }
+    ]
+  },
+  {
+    prompt: 'Urutkan nilai bilangan puluhan ini dari TERKECIL ke TERBESAR!',
+    items: [
+      { id: 'num-65', label: 'Nilai 65', sizeRank: 3, scale: 0.95, emoji: '6️⃣5️⃣' },
+      { id: 'num-18', label: 'Nilai 18', sizeRank: 1, scale: 0.65, emoji: '1️⃣8️⃣' },
+      { id: 'num-94', label: 'Nilai 94', sizeRank: 4, scale: 1.15, emoji: '9️⃣4️⃣' },
+      { id: 'num-42', label: 'Nilai 42', sizeRank: 2, scale: 0.8, emoji: '4️⃣2️⃣' }
+    ]
+  },
+  {
+    prompt: 'Urutkan satuan waktu dari yang PALING SINGKAT ke PALING PANJANG!',
+    items: [
+      { id: 't-hour', label: 'Satu Jam (60 Menit)', sizeRank: 3, scale: 0.95, emoji: '⏰' },
+      { id: 't-sec', label: 'Satu Detik (Paling Singkat)', sizeRank: 1, scale: 0.55, emoji: '⏱️' },
+      { id: 't-day', label: 'Satu Hari (24 Jam)', sizeRank: 4, scale: 1.2, emoji: '📅' },
+      { id: 't-min', label: 'Satu Menit (60 Detik)', sizeRank: 2, scale: 0.75, emoji: '⏳' }
+    ]
+  }
+]);
+
+// ==========================================
+// 3. PATTERNS (Pola & Deret)
+// ==========================================
+export const PATTERN_LEVELS_AGE_4 = Object.freeze([
+  {
+    prompt: 'Lihat polanya: Apel, Pisang, Apel, Pisang... Apa berikutnya?',
+    sequence: ['🍎', '🍌', '🍎', '🍌', '?'],
+    options: ['🍌', '🍎', '🍇'],
+    answer: '🍎',
+    reason: 'Pola berulang: Apel lalu Pisang!'
+  },
+  {
+    prompt: 'Lihat polanya: Merah, Biru, Merah, Biru... Lingkaran warna apa setelahnya?',
+    sequence: ['🔴', '🔵', '🔴', '🔵', '?'],
+    options: ['🔵', '🟡', '🔴'],
+    answer: '🔴',
+    reason: 'Pola selang-seling: Merah lalu Biru!'
+  },
+  {
+    prompt: 'Kucing, Ikan, Kucing, Ikan... Siapa teman selanjutnya?',
+    sequence: ['🐱', '🐟', '🐱', '🐟', '?'],
+    options: ['🐶', '🐟', '🐱'],
+    answer: '🐱',
+    reason: 'Setelah Ikan, kembali ke Kucing!'
+  },
+  {
+    prompt: 'Bintang, Bintang, Hati, Bintang, Bintang... Apa yang tepat?',
+    sequence: ['⭐', '⭐', '💖', '⭐', '⭐', '?'],
+    options: ['⭐', '💖', '🌙'],
+    answer: '💖',
+    reason: 'Dua bintang lalu satu hati!'
+  }
+]);
+
+export const PATTERN_LEVELS_AGE_7 = Object.freeze([
+  {
+    prompt: 'Deret Bilangan Loncat Dua: 2, 4, 6, 8, ... Berapakah angka selanjutnya?',
+    sequence: ['2', '4', '6', '8', '?'],
+    options: ['9', '10', '12'],
+    answer: '10',
+    reason: 'Pola selalu bertambah 2 di setiap langkah (2, 4, 6, 8, 10)!'
+  },
+  {
+    prompt: 'Deret Bilangan Loncat Lima: 5, 10, 15, 20, ... Berapakah angka selanjutnya?',
+    sequence: ['5', '10', '15', '20', '?'],
+    options: ['22', '25', '30'],
+    answer: '25',
+    reason: 'Pola bertambah 5 di setiap langkah (kelipatan lima: 5, 10, 15, 20, 25)!'
+  },
+  {
+    prompt: 'Deret Mundur Pengurangan: 30, 25, 20, 15, ... Berapa angka berikutnya?',
+    sequence: ['30', '25', '20', '15', '?'],
+    options: ['12', '10', '5'],
+    answer: '10',
+    reason: 'Pola berkurang 5 setiap langkah (30 - 5 = 25 - 5 = 20 - 5 = 15 - 5 = 10)!'
+  },
+  {
+    prompt: 'Deret Bertingkat: 1, 3, 6, 10, ... (+2, +3, +4, +5). Angka berapa selanjutnya?',
+    sequence: ['1', '3', '6', '10', '?'],
+    options: ['14', '15', '18'],
+    answer: '15',
+    reason: 'Pertambahan bertambah satu: +2, +3, +4, maka langkah berikutnya 10 + 5 = 15!'
+  }
+]);
+
+// ==========================================
+// 4. ODD ONE OUT (Klasifikasi)
+// ==========================================
+export const ODD_ONE_LEVELS_AGE_4 = Object.freeze([
+  {
+    prompt: 'Pilih satu yang BUKAN hewan darat / berbeda kelompok!',
+    items: [
+      { id: 'dog', emoji: '🐶', name: 'Anjing', isOdd: false, reason: 'Hewan berkaki empat di darat' },
+      { id: 'cat', emoji: '🐱', name: 'Kucing', isOdd: false, reason: 'Hewan berkaki empat di darat' },
+      { id: 'fish', emoji: '🐠', name: 'Ikan', isOdd: true, reason: 'Ikan hidup dan berenang di dalam air!' },
+      { id: 'cow', emoji: '🐮', name: 'Sapi', isOdd: false, reason: 'Hewan berkaki empat di darat' }
+    ]
+  },
+  {
+    prompt: 'Pilih satu benda yang BUKAN buah lezat!',
+    items: [
+      { id: 'apple', emoji: '🍎', name: 'Apel', isOdd: false, reason: 'Buah untuk dimakan' },
+      { id: 'banana', emoji: '🍌', name: 'Pisang', isOdd: false, reason: 'Buah untuk dimakan' },
+      { id: 'car', emoji: '🚗', name: 'Mobil', isOdd: true, reason: 'Mobil adalah kendaraan, bukan makanan!' },
+      { id: 'grape', emoji: '🍇', name: 'Anggur', isOdd: false, reason: 'Buah untuk dimakan' }
+    ]
+  },
+  {
+    prompt: 'Pilih kendaraan yang terbang di langit, bukan berjalan di jalan!',
+    items: [
+      { id: 'bus', emoji: '🚌', name: 'Bus', isOdd: false, reason: 'Kendaraan darat' },
+      { id: 'truck', emoji: '🚚', name: 'Truk', isOdd: false, reason: 'Kendaraan darat' },
+      { id: 'bicycle', emoji: '🚲', name: 'Sepeda', isOdd: false, reason: 'Kendaraan darat' },
+      { id: 'airplane', emoji: '✈️', name: 'Pesawat', isOdd: true, reason: 'Pesawat terbang tinggi di langit!' }
+    ]
+  },
+  {
+    prompt: 'Mana yang warnanya BUKAN kuning cerah?',
+    items: [
+      { id: 'sun', emoji: '☀️', name: 'Matahari', isOdd: false, reason: 'Berwarna kuning' },
+      { id: 'banana-color', emoji: '🍌', name: 'Pisang', isOdd: false, reason: 'Berwarna kuning' },
+      { id: 'strawberry', emoji: '🍓', name: 'Stroberi', isOdd: true, reason: 'Stroberi warnanya merah manis!' },
+      { id: 'chick', emoji: '🐥', name: 'Anak Ayam', isOdd: false, reason: 'Berwarna kuning' }
+    ]
+  }
+]);
+
+export const ODD_ONE_LEVELS_AGE_7 = Object.freeze([
+  {
+    prompt: 'Pilih hewan KARNIVORA (pemakan daging), di antara hewan herbivora pemakan rumput!',
+    items: [
+      { id: 'cow', emoji: '🐮', name: 'Sapi (Herbivora)', isOdd: false, reason: 'Sapi memakan rumput dan tumbuhan' },
+      { id: 'rabbit', emoji: '🐰', name: 'Kelinci (Herbivora)', isOdd: false, reason: 'Kelinci memakan sayur dan wortel' },
+      { id: 'tiger', emoji: '🐅', name: 'Harimau (Karnivora)', isOdd: true, reason: 'Harimau adalah karnivora pemburu daging, bukan herbivora!' },
+      { id: 'goat', emoji: '🐐', name: 'Kambing (Herbivora)', isOdd: false, reason: 'Kambing memakan dedaunan rumput' }
+    ]
+  },
+  {
+    prompt: 'Pilih benda yang berwujud CAIR di antara benda-benda padat!',
+    items: [
+      { id: 'chair', emoji: '🪑', name: 'Kursi Kayu', isOdd: false, reason: 'Benda padat' },
+      { id: 'water', emoji: '💧', name: 'Air Minum', isOdd: true, reason: 'Air adalah benda cair yang mengalir dan berubah bentuk sesuai wadah!' },
+      { id: 'stone', emoji: '🪨', name: 'Batu Keras', isOdd: false, reason: 'Benda padat' },
+      { id: 'book', emoji: '📖', name: 'Buku Tulis', isOdd: false, reason: 'Benda padat' }
+    ]
+  },
+  {
+    prompt: 'Pilih satu hewan MAMALIA (melahirkan & menyusui) di antara hewan yang bertelur (ovipar)!',
+    items: [
+      { id: 'chicken', emoji: '🐔', name: 'Ayam (Bertelur)', isOdd: false, reason: 'Ayam berkembang biak dengan bertelur' },
+      { id: 'duck', emoji: '🦆', name: 'Bebek (Bertelur)', isOdd: false, reason: 'Bebek berkembang biak dengan bertelur' },
+      { id: 'cat-mam', emoji: '🐱', name: 'Kucing (Mamalia)', isOdd: true, reason: 'Kucing adalah mamalia yang melahirkan anak dan menyusuinya!' },
+      { id: 'turtle', emoji: '🐢', name: 'Penyu (Bertelur)', isOdd: false, reason: 'Penyu berkembang biak dengan bertelur di pasir' }
+    ]
+  },
+  {
+    prompt: 'Pilih benda ISOLATOR (bukan penghantar panas) di antara logam konduktor!',
+    items: [
+      { id: 'spoon', emoji: '🥄', name: 'Sendok Logam (Konduktor)', isOdd: false, reason: 'Menghantarkan panas cepat' },
+      { id: 'nail', emoji: '🔩', name: 'Paku Besi (Konduktor)', isOdd: false, reason: 'Menghantarkan panas cepat' },
+      { id: 'eraser', emoji: '🧼', name: 'Karet / Kayu (Isolator)', isOdd: true, reason: 'Karet adalah isolator yang menahan aliran panas dan listrik!' },
+      { id: 'key', emoji: '🗝️', name: 'Kunci Tembaga (Konduktor)', isOdd: false, reason: 'Menghantarkan panas cepat' }
+    ]
+  }
+]);
+
+// ==========================================
+// 5. ANIMAL HABITATS & SCIENCE (Sains & Sebab-Akibat)
+// ==========================================
+export const HABITAT_LEVELS_AGE_4 = Object.freeze([
+  {
+    prompt: 'Ke mana Monyet suka pergi dan apa makanan kesukaannya?',
+    subject: { name: 'Monyet Cerdik', emoji: '🐵', text: 'Monyet suka makan apa ya?' },
+    options: [
+      { id: 'banana', emoji: '🍌', name: 'Pisang', isCorrect: true, cheer: 'Hore! Monyet suka sekali makan pisang!' },
+      { id: 'meat', emoji: '🍖', name: 'Daging', isCorrect: false, cheer: 'Kurang pas, monyet lebih suka buah segar.' },
+      { id: 'bone', emoji: '🦴', name: 'Tulang', isCorrect: false, cheer: 'Tulang adalah kesukaan anak anjing!' }
+    ]
+  },
+  {
+    prompt: 'Di mana Ikan Paus dan Ikan Kecil tinggal?',
+    subject: { name: 'Ikan Biru', emoji: '🐟', text: 'Di mana rumah alami Ikan?' },
+    options: [
+      { id: 'ocean', emoji: '🌊', name: 'Laut / Air', isCorrect: true, cheer: 'Hebat! Ikan bernapas dan berenang di air!' },
+      { id: 'tree', emoji: '🌳', name: 'Pohon Tinggi', isCorrect: false, cheer: 'Pohon adalah tempat burung bersarang.' },
+      { id: 'house', emoji: '🏠', name: 'Garasi', isCorrect: false, cheer: 'Garasi tempat parkir mobil.' }
+    ]
+  },
+  {
+    prompt: 'Siapa yang menghasilkan telur dan berkokok di pagi hari?',
+    subject: { name: 'Telur Hangat', emoji: '🥚', text: 'Telur ini berasal dari siapa?' },
+    options: [
+      { id: 'chicken', emoji: '🐔', name: 'Ibu Ayam', isCorrect: true, cheer: 'Pintar! Ayam betina yang bertelur!' },
+      { id: 'lion', emoji: '🦁', name: 'Singa', isCorrect: false, cheer: 'Singa melahirkan anaknya, bukan bertelur.' },
+      { id: 'horse', emoji: '🐴', name: 'Kuda', isCorrect: false, cheer: 'Kuda juga melahirkan anaknya.' }
+    ]
+  },
+  {
+    prompt: 'Burung ingin pulang untuk tidur. Di mana sarang burung?',
+    subject: { name: 'Burung Kecil', emoji: '🐦', text: 'Di mana sarang burung yang aman?' },
+    options: [
+      { id: 'tree-nest', emoji: '🌳', name: 'Pohon Rindang', isCorrect: true, cheer: 'Tepat sekali! Burung membuat sarang di dahan pohon!' },
+      { id: 'underwater', emoji: '🌊', name: 'Dasar Laut', isCorrect: false, cheer: 'Burung tidak bisa bernapas di dasar laut.' },
+      { id: 'cave', emoji: '🕳️', name: 'Lubang Gelap', isCorrect: false, cheer: 'Pohon yang tinggi jauh lebih nyaman untuk burung.' }
+    ]
+  }
+]);
+
+export const HABITAT_LEVELS_AGE_7 = Object.freeze([
+  {
+    prompt: 'Rantai Makanan Sawah: Padi dimakan Belalang 🦗, Belalang dimakan Katak 🐸. Siapakah pemangsa alami Katak?',
+    subject: { name: 'Katak Sawah', emoji: '🐸', text: 'Siapa predator pemangsa katak di sawah?' },
+    options: [
+      { id: 'snake', emoji: '🐍', name: 'Ular Sawah', isCorrect: true, cheer: 'Tepat! Ular sawah memangsa katak dalam rantai makanan ekosistem sawah!' },
+      { id: 'cow-eat', emoji: '🐮', name: 'Sapi Rumput', isCorrect: false, cheer: 'Sapi hanya makan rumput, tidak memangsa hewan lain.' },
+      { id: 'butterfly', emoji: '🦋', name: 'Kupu-kupu', isCorrect: false, cheer: 'Kupu-kupu hanya mengisap nektar bunga manis.' }
+    ]
+  },
+  {
+    prompt: 'Fotosintesis Tumbuhan: Apa sumber energi utama yang dibutuhkan tumbuhan hijau untuk memasak makanannya?',
+    subject: { name: 'Tumbuhan Hijau', emoji: '🌱', text: 'Energi apa yang menggerakkan proses fotosintesis daun?' },
+    options: [
+      { id: 'sunlight', emoji: '☀️', name: 'Cahaya Matahari', isCorrect: true, cheer: 'Benar sekali! Klorofil daun menangkap sinar matahari untuk fotosintesis menghasilkan oksigen!' },
+      { id: 'fire', emoji: '🔥', name: 'Api Kompor', isCorrect: false, cheer: 'Api justru akan membakar dan merusak sel-sel tumbuhan.' },
+      { id: 'wind', emoji: '💨', name: 'Angin Dingin', isCorrect: false, cheer: 'Angin membantu penyerbukan, tetapi bukan sumber energi fotosintesis.' }
+    ]
+  },
+  {
+    prompt: 'Siklus Air Bumi: Air laut yang dipanaskan matahari akan menguap ke atas dan berkumpul membentuk apa?',
+    subject: { name: 'Uap Air Laut', emoji: '🌊', text: 'Uap air yang naik ke atmosfer akan berkondensasi menjadi apa?' },
+    options: [
+      { id: 'rain-clouds', emoji: '☁️', name: 'Gumpalan Awan Hujan', isCorrect: true, cheer: 'Pintar! Uap air mengembun menjadi awan, lalu turun kembali ke bumi sebagai air hujan!' },
+      { id: 'sand', emoji: '🏖️', name: 'Gurun Pasir', isCorrect: false, cheer: 'Uap air berada di udara, tidak berubah menjadi butiran pasir.' },
+      { id: 'rainbow', emoji: '🌈', name: 'Batu Karang', isCorrect: false, cheer: 'Uap air di atmosfer membentuk awan mendung pembawa hujan.' }
+    ]
+  },
+  {
+    prompt: 'Adaptasi Suhu Dingin: Hewan mana yang memiliki lapisan lemak tebal di bawah kulit untuk hidup di salju kutub?',
+    subject: { name: 'Kutub Es Utara', emoji: '❄️', text: 'Hewan apa yang beradaptasi sempurna di lingkungan es abadi?' },
+    options: [
+      { id: 'polar-bear', emoji: '🐻‍❄️', name: 'Beruang Kutub', isCorrect: true, cheer: 'Luar biasa! Beruang kutub memiliki bulu kedap air dan lemak tebal penahan dingin beku!' },
+      { id: 'camel', emoji: '🐪', name: 'Unta Gurun', isCorrect: false, cheer: 'Unta beradaptasi untuk gurun pasir yang panas dan gersang.' },
+      { id: 'monkey-t', emoji: '🐵', name: 'Monyet Tropis', isCorrect: false, cheer: 'Monyet hidup di hutan hujan tropis yang hangat.' }
+    ]
+  }
+]);
+
+// ==========================================
+// 6. COUNTING & MATH LOGIC (Matematika & Aljabar Cilik)
+// ==========================================
+export const COUNTING_LEVELS_AGE_4 = Object.freeze([
+  {
+    prompt: 'Hitung ada berapa stroberi manis di kebun?',
+    emoji: '🍓',
+    count: 3,
+    options: [2, 3, 4],
+    speech: 'Satu, dua, tiga! Ada tiga stroberi manis!'
+  },
+  {
+    prompt: 'Berapa banyak anak bebek kuning yang lucu?',
+    emoji: '🦆',
+    count: 4,
+    options: [3, 4, 5],
+    speech: 'Hebat! Ada empat bebek berenang kwek-kwek!'
+  },
+  {
+    prompt: 'Ayo hitung bintang gemerlap di langit!',
+    emoji: '⭐',
+    count: 5,
+    options: [4, 5, 6],
+    speech: 'Luar biasa! Ada lima bintang terang!'
+  },
+  {
+    prompt: 'Berapa mobil yang sedang parkir?',
+    emoji: '🚗',
+    count: 2,
+    options: [1, 2, 3],
+    speech: 'Pintar sekali! Ada dua mobil parkir!'
+  }
+]);
+
+export const COUNTING_LEVELS_AGE_7 = Object.freeze([
+  {
+    prompt: 'Aljabar Visual: Apel + Apel = 8 (🍎 + 🍎 = 8). Berapakah nilai 1 buah apel 🍎?',
+    equationText: '🍎 + 🍎 = 8',
+    count: 4,
+    options: [3, 4, 5],
+    speech: 'Hebat! Empat ditambah empat sama dengan delapan, jadi nilai apel adalah 4!'
+  },
+  {
+    prompt: 'Nilai Apel = 4. Jika Apel + Pisang = 9 (4 + 🍌 = 9), berapakah nilai pisang 🍌?',
+    equationText: '4 + 🍌 = 9',
+    count: 5,
+    options: [4, 5, 6],
+    speech: 'Tepat sekali! Sembilan dikurangi empat adalah 5, jadi nilai pisang adalah 5!'
+  },
+  {
+    prompt: 'Perkalian Logika: Ada 3 ekor ayam (🐔 🐔 🐔). Setiap ayam punya 2 kaki. Berapa jumlah kaki seluruhnya?',
+    equationText: '3 ayam × 2 kaki',
+    count: 6,
+    options: [5, 6, 8],
+    speech: 'Luar biasa! Tiga dikali dua sama dengan 6 pasang kaki ayam!'
+  },
+  {
+    prompt: 'Pembagian Adil: Ada 10 permen manis (🍬 × 10) dibagikan rata untuk 2 orang anak. Berapa permen yang diterima tiap anak?',
+    equationText: '10 permen ÷ 2 anak',
+    count: 5,
+    options: [4, 5, 6],
+    speech: 'Pintar! Sepuluh dibagi dua sama dengan lima permen untuk masing-masing anak!'
+  }
+]);
+
+// Helper selector functions by age group
+export function getGameLevels(gameId, ageGroup = '4') {
+  const isAge7 = ageGroup === '7';
+
+  switch (gameId) {
+    case 'shapes':
+      return isAge7 ? SHAPE_LEVELS_AGE_7 : SHAPE_LEVELS_AGE_4;
+    case 'sizes':
+      return isAge7 ? SIZE_LEVELS_AGE_7 : SIZE_LEVELS_AGE_4;
+    case 'patterns':
+      return isAge7 ? PATTERN_LEVELS_AGE_7 : PATTERN_LEVELS_AGE_4;
+    case 'odd-one':
+      return isAge7 ? ODD_ONE_LEVELS_AGE_7 : ODD_ONE_LEVELS_AGE_4;
+    case 'animal-habitats':
+      return isAge7 ? HABITAT_LEVELS_AGE_7 : HABITAT_LEVELS_AGE_4;
+    case 'counting':
+      return isAge7 ? COUNTING_LEVELS_AGE_7 : COUNTING_LEVELS_AGE_4;
+    default:
+      return [];
+  }
+}
+
+// Default export aliases
+export const SHAPE_LEVELS = SHAPE_LEVELS_AGE_4;
+export const SIZE_LEVELS = SIZE_LEVELS_AGE_4;
+export const PATTERN_LEVELS = PATTERN_LEVELS_AGE_4;
+export const ODD_ONE_LEVELS = ODD_ONE_LEVELS_AGE_4;
+export const HABITAT_LEVELS = HABITAT_LEVELS_AGE_4;
+export const COUNTING_LEVELS = COUNTING_LEVELS_AGE_4;
