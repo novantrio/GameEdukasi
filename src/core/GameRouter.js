@@ -53,7 +53,7 @@ export class GameRouter {
       : (isAge7 ? 'Pilih tantangan logika & sains SD Kelas 1-2 di bawah ini ya!' : 'Pilih tugas logika PAUD yang belum selesai di bawah ini ya!');
     gameState.setInstruction(defaultPrompt);
 
-    const cardsHtml = GAMES_INFO.map(game => {
+    const cardsHtml = GAMES_INFO.map((game, index) => {
       const isCompleted = completedGames.includes(game.id);
       const subtitle = isAge7 ? game.subtitleAge7 : game.subtitleAge4;
 
@@ -64,16 +64,19 @@ export class GameRouter {
             <div class="card-icon" style="filter: grayscale(80%); opacity: 0.65;">${game.icon}</div>
             <h3 class="card-title" style="color: #64748b;">${game.title}</h3>
             <p class="card-desc" style="color: #94a3b8;">Tugas ${isAge7 ? 'fase SD' : 'fase PAUD'} ini telah dinilai.</p>
+            <span class="card-action">Selesai dikerjakan <span aria-hidden="true">✓</span></span>
           </div>
         `;
       }
 
       return `
         <div class="game-card" data-id="${game.id}" data-completed="false" style="--card-theme-color: ${game.color};">
+          <span class="card-index">${String(index + 1).padStart(2, '0')}</span>
           <span class="card-badge">${game.badge}</span>
           <div class="card-icon">${game.icon}</div>
           <h3 class="card-title">${game.title}</h3>
           <p class="card-desc">${subtitle}</p>
+          <span class="card-action">Mulai bermain <span aria-hidden="true">↗</span></span>
         </div>
       `;
     }).join('');
@@ -81,30 +84,36 @@ export class GameRouter {
     const completedBannerHtml = allCompleted
       ? `<div class="all-completed-banner">
            <h3>🎓 Semua 6 Tugas Asesmen (${isAge7 ? 'SD Kelas 1-2' : 'PAUD / TK-A'}) Telah Lengkap!</h3>
-           <p>Seluruh aspek logika kognitif telah diobservasi. Klik tombol <strong>👩‍🏫 Rapor Guru</strong> di atas untuk menelaah laporan perkembangan dan mencetak dokumen.</p>
+           <p>Seluruh aspek logika kognitif telah diobservasi. Klik tombol <strong>📋 Rapor Guru</strong> di atas untuk menelaah laporan perkembangan dan mencetak dokumen.</p>
          </div>`
       : '';
 
     this.stage.innerHTML = `
       <div class="menu-view">
         <div class="hero-banner">
-          <h1 class="hero-title">${isAge7 ? 'Tantangan Nalar & Sains Cilik 🚀' : 'Petualangan Logika Cilik 🎈'}</h1>
-          <p class="hero-subtitle">${isAge7 ? 'Asesmen Logika, Penalaran Matematika & Sains Usia 7 Tahun (SD Kelas 1-2)' : 'Asesmen Kognitif Mandiri Anak Usia 4 Tahun (PAUD / TK-A)'}</p>
-          
+          <div class="hero-copy">
+            <span class="hero-kicker">RUANG BERMAIN & BELAJAR</span>
+            <h1 class="hero-title">${isAge7 ? 'Tantangan Nalar <em>&</em> Sains Cilik' : 'Petualangan <em>Logika</em> Cilik'}</h1>
+            <p class="hero-subtitle">${isAge7 ? 'Jelajahi logika, matematika, dan sains untuk SD kelas 1–2.' : 'Belajar bentuk, pola, angka, dan alam sambil bermain untuk PAUD / TK-A.'}</p>
+            <div class="hero-meta"><span>✦ 6 permainan seru</span><span>★ ${completedGames.length} selesai</span></div>
+          </div>
+          <div class="hero-visual" aria-hidden="true">
+            <span class="hero-shape hero-shape-circle"></span>
+            <span class="hero-shape hero-shape-square"></span>
+            <span class="hero-shape hero-shape-triangle"></span>
+            <span class="hero-shape hero-shape-star">✦</span>
+          </div>
           <div class="age-switcher-container">
-            <span class="age-switcher-label">Pilih Kelompok Usia:</span>
+            <span class="age-switcher-label">Pilih kelompok usia</span>
             <div class="age-switcher-pills">
-              <button class="age-pill-btn ${!isAge7 ? 'active' : ''}" data-target-age="4">
-                🎈 Usia 4 Tahun (PAUD / TK-A)
-              </button>
-              <button class="age-pill-btn ${isAge7 ? 'active' : ''}" data-target-age="7">
-                🚀 Usia 7 Tahun (SD Kelas 1-2)
-              </button>
+              <button class="age-pill-btn ${!isAge7 ? 'active' : ''}" data-target-age="4">🎈 4 tahun · PAUD</button>
+              <button class="age-pill-btn ${isAge7 ? 'active' : ''}" data-target-age="7">🚀 7 tahun · SD</button>
             </div>
           </div>
         </div>
 
         ${completedBannerHtml}
+        <div class="section-intro"><div><span class="section-kicker">PILIH PETUALANGANMU</span><h2>Belajar lewat permainan</h2></div><span class="section-count">${completedGames.length} dari 6 selesai</span></div>
         <div class="games-grid">
           ${cardsHtml}
         </div>

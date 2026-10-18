@@ -3,6 +3,7 @@ import { BaseGame } from './BaseGame.js';
 import { getGameLevels } from '../constants/gameData.js';
 import { StorageService } from '../services/StorageService.js';
 import { eventBus } from '../core/EventBus.js';
+import { renderVisual, renderRichVisualText } from '../utils/animalVisuals.js';
 
 export class CountingLogicGame extends BaseGame {
   constructor(ageGroup = StorageService.getAgeGroup()) {
@@ -24,14 +25,14 @@ export class CountingLogicGame extends BaseGame {
         <div class="algebra-board">
           <div class="algebra-equation-card">
             <span class="algebra-icon">🧮</span>
-            <span class="algebra-text">${level.equationText}</span>
+            <span class="algebra-text">${renderRichVisualText(level.equationText)}</span>
           </div>
         </div>
       `;
     } else {
       const itemsBadgesHtml = Array.from({ length: level.count }, (_, i) => `
         <div class="count-item-badge" data-index="${i + 1}" role="button" tabindex="0">
-          <span>${level.emoji || '⭐'}</span>
+          <span>${renderVisual(level.emoji || '⭐')}</span>
         </div>
       `).join('');
       itemsFieldHtml = `<div class="counting-items-field" id="items-field">${itemsBadgesHtml}</div>`;
@@ -47,7 +48,7 @@ export class CountingLogicGame extends BaseGame {
       <div class="play-screen">
         ${this.renderLevelHeader(this.currentLevel, total)}
         <div class="instruction-box" id="speak-box">
-          <button class="speak-icon-btn" aria-label="Ulangi Instruksi">🗣️</button>
+          <button class="speak-icon-btn" aria-label="Ulangi Instruksi">🔈</button>
           <span class="instruction-text">${level.prompt}</span>
         </div>
         <div class="counting-view">

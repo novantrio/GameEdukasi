@@ -5,11 +5,12 @@ import { StorageService } from '../services/StorageService.js';
 import { shuffleArray } from '../utils/dom.js';
 import { makeDraggable } from '../utils/dragDrop.js';
 import { eventBus } from '../core/EventBus.js';
+import { renderVisual } from '../utils/animalVisuals.js';
 
 export class SizeOrderGame extends BaseGame {
   constructor(ageGroup = StorageService.getAgeGroup()) {
     const levels = getGameLevels('sizes', ageGroup);
-    const title = ageGroup === '7' ? '⚖️ Seriasi Bobot, Waktu & Nilai' : '🐻 Urutan Besar & Kecil';
+    const title = ageGroup === '7' ? '⚖️ Seriasi Bobot, Waktu & Nilai' : '🧩 Urutan Besar & Kecil';
     super('sizes', title, levels);
     this.ageGroup = ageGroup;
     this.slotPlacements = new Map(); // slotIndex -> item
@@ -30,7 +31,7 @@ export class SizeOrderGame extends BaseGame {
     const shuffledItems = shuffleArray(level.items);
     const itemsHtml = shuffledItems.map(item => `
       <div class="draggable-size-item" role="button" tabindex="0" data-id="${item.id}" data-rank="${item.sizeRank}" style="font-size: ${item.scale * 3.5}rem;">
-        <span>${item.emoji}</span>
+        <span>${renderVisual(item.emoji)}</span>
         ${item.label ? `<span class="size-item-label">${item.label}</span>` : ''}
       </div>
     `).join('');
@@ -39,7 +40,7 @@ export class SizeOrderGame extends BaseGame {
       <div class="play-screen">
         ${this.renderLevelHeader(this.currentLevel, total)}
         <div class="instruction-box" id="speak-box">
-          <button class="speak-icon-btn" aria-label="Ulangi Instruksi">🗣️</button>
+          <button class="speak-icon-btn" aria-label="Ulangi Instruksi">🔈</button>
           <span class="instruction-text">${level.prompt}</span>
         </div>
         <div class="sizes-container">
@@ -79,7 +80,7 @@ export class SizeOrderGame extends BaseGame {
           returnCard.setAttribute('data-id', previousItem.id);
           returnCard.setAttribute('data-rank', previousItem.sizeRank);
           returnCard.style.fontSize = `${previousItem.scale * 3.5}rem`;
-          returnCard.innerHTML = `<span>${previousItem.emoji}</span>${previousItem.label ? `<span class="size-item-label">${previousItem.label}</span>` : ''}`;
+          returnCard.innerHTML = `<span>${renderVisual(previousItem.emoji)}</span>${previousItem.label ? `<span class="size-item-label">${previousItem.label}</span>` : ''}`;
           pool.appendChild(returnCard);
           this.attachSizeDrag(returnCard, slots, level, pool);
         }
@@ -163,7 +164,7 @@ export class SizeOrderGame extends BaseGame {
         returnCard.setAttribute('data-id', previousItem.id);
         returnCard.setAttribute('data-rank', previousItem.sizeRank);
         returnCard.style.fontSize = `${previousItem.scale * 3.5}rem`;
-        returnCard.innerHTML = `<span>${previousItem.emoji}</span>${previousItem.label ? `<span class="size-item-label">${previousItem.label}</span>` : ''}`;
+        returnCard.innerHTML = `<span>${renderVisual(previousItem.emoji)}</span>${previousItem.label ? `<span class="size-item-label">${previousItem.label}</span>` : ''}`;
         pool.appendChild(returnCard);
         this.attachSizeDrag(returnCard, slots, level, pool);
       }

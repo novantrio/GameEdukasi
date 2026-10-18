@@ -37,7 +37,7 @@ export class ShapeMatchGame extends BaseGame {
       <div class="play-screen">
         ${this.renderLevelHeader(this.currentLevel, total)}
         <div class="instruction-box" id="speak-box">
-          <button class="speak-icon-btn" aria-label="Ulangi Instruksi">🗣️</button>
+          <button class="speak-icon-btn" aria-label="Ulangi Instruksi">🔈</button>
           <span class="instruction-text">${level.prompt}</span>
         </div>
         <div class="shapes-container">

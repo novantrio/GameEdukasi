@@ -15,7 +15,7 @@ export const GAMES_INFO = Object.freeze([
     title: 'Urutan & Seriasi Logis',
     subtitleAge4: 'Urutkan benda dari yang paling kecil ke paling besar!',
     subtitleAge7: 'Urutkan beban berat, satuan waktu, dan nilai kuantitas!',
-    icon: '🐻',
+    icon: '🧩',
     badge: 'Seriasi',
     color: '#10B981'
   },
@@ -24,7 +24,7 @@ export const GAMES_INFO = Object.freeze([
     title: 'Tebak Pola & Deret',
     subtitleAge4: 'Lengkapi pola warna & benda berulang yang hilang!',
     subtitleAge7: 'Pecahkan deret bilangan loncat, pola bertingkat & rotasi!',
-    icon: '🔮',
+    icon: '🔶',
     badge: 'Pola Bilangan',
     color: '#8B5CF6'
   },
@@ -42,7 +42,7 @@ export const GAMES_INFO = Object.freeze([
     title: 'Sebab-Akibat & Sains Alam',
     subtitleAge4: 'Bantu hewan menemukan tempat tinggal & makanannya!',
     subtitleAge7: 'Hubungan rantai makanan, fotosintesis & siklus ekosistem!',
-    icon: '🦁',
+    icon: '🌿',
     badge: 'Sains Logika',
     color: '#EC4899'
   },
@@ -124,9 +124,9 @@ export const SIZE_LEVELS_AGE_4 = Object.freeze([
     prompt: 'Urutkan beruang dari yang PALING KECIL ke PALING BESAR!',
     type: 'ascending',
     items: [
-      { id: 'bear-m', label: '', sizeRank: 2, scale: 0.8, emoji: '🧸' },
-      { id: 'bear-s', label: '', sizeRank: 1, scale: 0.55, emoji: '🧸' },
-      { id: 'bear-l', label: '', sizeRank: 3, scale: 1.1, emoji: '🧸' }
+      { id: 'bear-m', label: '', sizeRank: 2, scale: 0.8, emoji: 'animal:bear' },
+      { id: 'bear-s', label: '', sizeRank: 1, scale: 0.55, emoji: 'animal:bear' },
+      { id: 'bear-l', label: '', sizeRank: 3, scale: 1.1, emoji: 'animal:bear' }
     ]
   },
   {
@@ -154,10 +154,10 @@ export const SIZE_LEVELS_AGE_7 = Object.freeze([
   {
     prompt: 'Urutkan makhluk hidup ini dari bobot PALING RINGAN ke PALING BERAT!',
     items: [
-      { id: 'w-cat', label: 'Kucing', sizeRank: 2, scale: 0.75, emoji: '🐱' },
-      { id: 'w-ant', label: 'Semut', sizeRank: 1, scale: 0.5, emoji: '🐜' },
-      { id: 'w-elephant', label: 'Gajah', sizeRank: 4, scale: 1.25, emoji: '🐘' },
-      { id: 'w-horse', label: 'Kuda', sizeRank: 3, scale: 1.0, emoji: '🐴' }
+      { id: 'w-cat', label: 'Kucing', sizeRank: 2, scale: 0.75, emoji: 'animal:cat' },
+      { id: 'w-ant', label: 'Semut', sizeRank: 1, scale: 0.5, emoji: 'animal:ant' },
+      { id: 'w-elephant', label: 'Gajah', sizeRank: 4, scale: 1.25, emoji: 'animal:elephant' },
+      { id: 'w-horse', label: 'Kuda', sizeRank: 3, scale: 1.0, emoji: 'animal:horse' }
     ]
   },
   {
@@ -200,9 +200,9 @@ export const PATTERN_LEVELS_AGE_4 = Object.freeze([
   },
   {
     prompt: 'Kucing, Ikan, Kucing, Ikan... Siapa teman selanjutnya?',
-    sequence: ['🐱', '🐟', '🐱', '🐟', '?'],
-    options: ['🐶', '🐟', '🐱'],
-    answer: '🐱',
+    sequence: ['animal:cat', 'animal:fish', 'animal:cat', 'animal:fish', '?'],
+    options: ['animal:dog', 'animal:fish', 'animal:cat'],
+    answer: 'animal:cat',
     reason: 'Setelah Ikan, kembali ke Kucing!'
   },
   {
@@ -252,10 +252,10 @@ export const ODD_ONE_LEVELS_AGE_4 = Object.freeze([
   {
     prompt: 'Pilih satu yang BUKAN hewan darat / berbeda kelompok!',
     items: [
-      { id: 'dog', emoji: '🐶', name: 'Anjing', isOdd: false, reason: 'Hewan berkaki empat di darat' },
-      { id: 'cat', emoji: '🐱', name: 'Kucing', isOdd: false, reason: 'Hewan berkaki empat di darat' },
-      { id: 'fish', emoji: '🐠', name: 'Ikan', isOdd: true, reason: 'Ikan hidup dan berenang di dalam air!' },
-      { id: 'cow', emoji: '🐮', name: 'Sapi', isOdd: false, reason: 'Hewan berkaki empat di darat' }
+      { id: 'dog', emoji: 'animal:dog', name: 'Anjing', isOdd: false, reason: 'Hewan berkaki empat di darat' },
+      { id: 'cat', emoji: 'animal:cat', name: 'Kucing', isOdd: false, reason: 'Hewan berkaki empat di darat' },
+      { id: 'fish', emoji: 'animal:fish', name: 'Ikan', isOdd: true, reason: 'Ikan hidup dan berenang di dalam air!' },
+      { id: 'cow', emoji: 'animal:cow', name: 'Sapi', isOdd: false, reason: 'Hewan berkaki empat di darat' }
     ]
   },
   {
@@ -282,7 +282,7 @@ export const ODD_ONE_LEVELS_AGE_4 = Object.freeze([
       { id: 'sun', emoji: '☀️', name: 'Matahari', isOdd: false, reason: 'Berwarna kuning' },
       { id: 'banana-color', emoji: '🍌', name: 'Pisang', isOdd: false, reason: 'Berwarna kuning' },
       { id: 'strawberry', emoji: '🍓', name: 'Stroberi', isOdd: true, reason: 'Stroberi warnanya merah manis!' },
-      { id: 'chick', emoji: '🐥', name: 'Anak Ayam', isOdd: false, reason: 'Berwarna kuning' }
+      { id: 'chick', emoji: 'animal:chick', name: 'Anak Ayam', isOdd: false, reason: 'Berwarna kuning' }
     ]
   }
 ]);
@@ -291,10 +291,10 @@ export const ODD_ONE_LEVELS_AGE_7 = Object.freeze([
   {
     prompt: 'Pilih hewan KARNIVORA (pemakan daging), di antara hewan-hewan pemakan rumput!',
     items: [
-      { id: 'cow', emoji: '🐮', name: 'Sapi', isOdd: false, reason: 'Sapi memakan rumput dan tumbuhan' },
-      { id: 'rabbit', emoji: '🐰', name: 'Kelinci', isOdd: false, reason: 'Kelinci memakan sayur dan wortel' },
-      { id: 'tiger', emoji: '🐅', name: 'Harimau', isOdd: true, reason: 'Harimau adalah karnivora pemburu daging, bukan herbivora!' },
-      { id: 'goat', emoji: '🐐', name: 'Kambing', isOdd: false, reason: 'Kambing memakan dedaunan rumput' }
+      { id: 'cow', emoji: 'animal:cow', name: 'Sapi', isOdd: false, reason: 'Sapi memakan rumput dan tumbuhan' },
+      { id: 'rabbit', emoji: 'animal:rabbit', name: 'Kelinci', isOdd: false, reason: 'Kelinci memakan sayur dan wortel' },
+      { id: 'tiger', emoji: 'animal:tiger', name: 'Harimau', isOdd: true, reason: 'Harimau adalah karnivora pemburu daging, bukan herbivora!' },
+      { id: 'goat', emoji: 'animal:goat', name: 'Kambing', isOdd: false, reason: 'Kambing memakan dedaunan rumput' }
     ]
   },
   {
@@ -309,10 +309,10 @@ export const ODD_ONE_LEVELS_AGE_7 = Object.freeze([
   {
     prompt: 'Pilih satu hewan MAMALIA (melahirkan & menyusui) di antara hewan yang bertelur!',
     items: [
-      { id: 'chicken', emoji: '🐔', name: 'Ayam', isOdd: false, reason: 'Ayam berkembang biak dengan bertelur' },
-      { id: 'duck', emoji: '🦆', name: 'Bebek', isOdd: false, reason: 'Bebek berkembang biak dengan bertelur' },
-      { id: 'cat-mam', emoji: '🐱', name: 'Kucing', isOdd: true, reason: 'Kucing adalah mamalia yang melahirkan anak dan menyusuinya!' },
-      { id: 'turtle', emoji: '🐢', name: 'Penyu', isOdd: false, reason: 'Penyu berkembang biak dengan bertelur di pasir' }
+      { id: 'chicken', emoji: 'animal:chicken', name: 'Ayam', isOdd: false, reason: 'Ayam berkembang biak dengan bertelur' },
+      { id: 'duck', emoji: 'animal:duck', name: 'Bebek', isOdd: false, reason: 'Bebek berkembang biak dengan bertelur' },
+      { id: 'cat-mam', emoji: 'animal:cat', name: 'Kucing', isOdd: true, reason: 'Kucing adalah mamalia yang melahirkan anak dan menyusuinya!' },
+      { id: 'turtle', emoji: 'animal:turtle', name: 'Penyu', isOdd: false, reason: 'Penyu berkembang biak dengan bertelur di pasir' }
     ]
   },
   {
@@ -332,7 +332,7 @@ export const ODD_ONE_LEVELS_AGE_7 = Object.freeze([
 export const HABITAT_LEVELS_AGE_4 = Object.freeze([
   {
     prompt: 'Ke mana Monyet suka pergi dan apa makanan kesukaannya?',
-    subject: { name: 'Monyet Cerdik', emoji: '🐵', text: 'Monyet suka makan apa ya?' },
+    subject: { name: 'Monyet Cerdik', emoji: 'animal:monkey', text: 'Monyet suka makan apa ya?' },
     options: [
       { id: 'banana', emoji: '🍌', name: 'Pisang', isCorrect: true, cheer: 'Hore! Monyet suka sekali makan pisang!' },
       { id: 'meat', emoji: '🍖', name: 'Daging', isCorrect: false, cheer: 'Kurang pas, monyet lebih suka buah segar.' },
@@ -341,7 +341,7 @@ export const HABITAT_LEVELS_AGE_4 = Object.freeze([
   },
   {
     prompt: 'Di mana Ikan Paus dan Ikan Kecil tinggal?',
-    subject: { name: 'Ikan Biru', emoji: '🐟', text: 'Di mana rumah alami Ikan?' },
+    subject: { name: 'Ikan Biru', emoji: 'animal:fish', text: 'Di mana rumah alami Ikan?' },
     options: [
       { id: 'ocean', emoji: '🌊', name: 'Laut / Air', isCorrect: true, cheer: 'Hebat! Ikan bernapas dan berenang di air!' },
       { id: 'tree', emoji: '🌳', name: 'Pohon Tinggi', isCorrect: false, cheer: 'Pohon adalah tempat burung bersarang.' },
@@ -352,14 +352,14 @@ export const HABITAT_LEVELS_AGE_4 = Object.freeze([
     prompt: 'Siapa yang menghasilkan telur dan berkokok di pagi hari?',
     subject: { name: 'Telur Hangat', emoji: '🥚', text: 'Telur ini berasal dari siapa?' },
     options: [
-      { id: 'chicken', emoji: '🐔', name: 'Ibu Ayam', isCorrect: true, cheer: 'Pintar! Ayam betina yang bertelur!' },
-      { id: 'lion', emoji: '🦁', name: 'Singa', isCorrect: false, cheer: 'Singa melahirkan anaknya, bukan bertelur.' },
-      { id: 'horse', emoji: '🐴', name: 'Kuda', isCorrect: false, cheer: 'Kuda juga melahirkan anaknya.' }
+      { id: 'chicken', emoji: 'animal:chicken', name: 'Ibu Ayam', isCorrect: true, cheer: 'Pintar! Ayam betina yang bertelur!' },
+      { id: 'lion', emoji: 'animal:lion', name: 'Singa', isCorrect: false, cheer: 'Singa melahirkan anaknya, bukan bertelur.' },
+      { id: 'horse', emoji: 'animal:horse', name: 'Kuda', isCorrect: false, cheer: 'Kuda juga melahirkan anaknya.' }
     ]
   },
   {
     prompt: 'Burung ingin pulang untuk tidur. Di mana sarang burung?',
-    subject: { name: 'Burung Kecil', emoji: '🐦', text: 'Di mana sarang burung yang aman?' },
+    subject: { name: 'Burung Kecil', emoji: 'animal:bird', text: 'Di mana sarang burung yang aman?' },
     options: [
       { id: 'tree-nest', emoji: '🌳', name: 'Pohon Rindang', isCorrect: true, cheer: 'Tepat sekali! Burung membuat sarang di dahan pohon!' },
       { id: 'underwater', emoji: '🌊', name: 'Dasar Laut', isCorrect: false, cheer: 'Burung tidak bisa bernapas di dasar laut.' },
@@ -370,12 +370,12 @@ export const HABITAT_LEVELS_AGE_4 = Object.freeze([
 
 export const HABITAT_LEVELS_AGE_7 = Object.freeze([
   {
-    prompt: 'Rantai Makanan Sawah: Padi dimakan Belalang 🦗, Belalang dimakan Katak 🐸. Siapakah pemangsa alami Katak?',
-    subject: { name: 'Katak Sawah', emoji: '🐸', text: 'Siapa predator pemangsa katak di sawah?' },
+    prompt: 'Rantai Makanan Sawah: Padi dimakan belalang, lalu belalang dimakan katak. Siapakah pemangsa alami Katak?',
+    subject: { name: 'Katak Sawah', emoji: 'animal:frog', text: 'Siapa predator pemangsa katak di sawah?' },
     options: [
-      { id: 'snake', emoji: '🐍', name: 'Ular Sawah', isCorrect: true, cheer: 'Tepat! Ular sawah memangsa katak dalam rantai makanan ekosistem sawah!' },
-      { id: 'cow-eat', emoji: '🐮', name: 'Sapi Rumput', isCorrect: false, cheer: 'Sapi hanya makan rumput, tidak memangsa hewan lain.' },
-      { id: 'butterfly', emoji: '🦋', name: 'Kupu-kupu', isCorrect: false, cheer: 'Kupu-kupu hanya mengisap nektar bunga manis.' }
+      { id: 'snake', emoji: 'animal:snake', name: 'Ular Sawah', isCorrect: true, cheer: 'Tepat! Ular sawah memangsa katak dalam rantai makanan ekosistem sawah!' },
+      { id: 'cow-eat', emoji: 'animal:cow', name: 'Sapi Rumput', isCorrect: false, cheer: 'Sapi hanya makan rumput, tidak memangsa hewan lain.' },
+      { id: 'butterfly', emoji: 'animal:butterfly', name: 'Kupu-kupu', isCorrect: false, cheer: 'Kupu-kupu hanya mengisap nektar bunga manis.' }
     ]
   },
   {
@@ -400,9 +400,9 @@ export const HABITAT_LEVELS_AGE_7 = Object.freeze([
     prompt: 'Adaptasi Suhu Dingin: Hewan mana yang memiliki lapisan lemak tebal di bawah kulit untuk hidup di salju kutub?',
     subject: { name: 'Kutub Es Utara', emoji: '❄️', text: 'Hewan apa yang beradaptasi sempurna di lingkungan es abadi?' },
     options: [
-      { id: 'polar-bear', emoji: '🐻‍❄️', name: 'Beruang Kutub', isCorrect: true, cheer: 'Luar biasa! Beruang kutub memiliki bulu kedap air dan lemak tebal penahan dingin beku!' },
-      { id: 'camel', emoji: '🐪', name: 'Unta Gurun', isCorrect: false, cheer: 'Unta beradaptasi untuk gurun pasir yang panas dan gersang.' },
-      { id: 'monkey-t', emoji: '🐵', name: 'Monyet Tropis', isCorrect: false, cheer: 'Monyet hidup di hutan hujan tropis yang hangat.' }
+      { id: 'polar-bear', emoji: 'animal:polar-bear', name: 'Beruang Kutub', isCorrect: true, cheer: 'Luar biasa! Beruang kutub memiliki bulu kedap air dan lemak tebal penahan dingin beku!' },
+      { id: 'camel', emoji: 'animal:camel', name: 'Unta Gurun', isCorrect: false, cheer: 'Unta beradaptasi untuk gurun pasir yang panas dan gersang.' },
+      { id: 'monkey-t', emoji: 'animal:monkey', name: 'Monyet Tropis', isCorrect: false, cheer: 'Monyet hidup di hutan hujan tropis yang hangat.' }
     ]
   }
 ]);
@@ -420,7 +420,7 @@ export const COUNTING_LEVELS_AGE_4 = Object.freeze([
   },
   {
     prompt: 'Berapa banyak anak bebek kuning yang lucu?',
-    emoji: '🦆',
+    emoji: 'animal:duck',
     count: 4,
     options: [3, 4, 5],
     speech: 'Hebat! Ada empat bebek berenang kwek-kwek!'
@@ -457,15 +457,15 @@ export const COUNTING_LEVELS_AGE_7 = Object.freeze([
     speech: 'Tepat sekali! Sembilan dikurangi empat adalah 5, jadi nilai pisang adalah 5!'
   },
   {
-    prompt: 'Ada 3 ekor ayam (🐔 🐔 🐔). Jika setiap ayam memiliki 2 kaki, berapakah jumlah seluruh kaki ayam?',
-    equationText: '🐔 🐔 🐔',
+    prompt: 'Ada 3 ekor ayam. Jika setiap ayam memiliki 2 kaki, berapakah jumlah seluruh kaki ayam?',
+    equationText: 'animal:chicken animal:chicken animal:chicken',
     count: 6,
     options: [5, 6, 8],
-    speech: 'Luar biasa! Tiga dikali dua sama dengan 6 pasang kaki ayam!'
+    speech: 'Luar biasa! Tiga dikali dua sama dengan 6 kaki ayam!'
   },
   {
     prompt: 'Ada 10 permen manis dibagikan sama rata untuk 2 orang anak. Berapa permen yang diterima tiap anak?',
-    equationText: '🍬 × 10  ➔  👧 👦',
+    equationText: '10 🍬 ÷ 2 anak',
     count: 5,
     options: [4, 5, 6],
     speech: 'Pintar! Sepuluh dibagi dua sama dengan lima permen untuk masing-masing anak!'

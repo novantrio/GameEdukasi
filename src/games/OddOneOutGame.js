@@ -3,6 +3,7 @@ import { BaseGame } from './BaseGame.js';
 import { getGameLevels } from '../constants/gameData.js';
 import { StorageService } from '../services/StorageService.js';
 import { eventBus } from '../core/EventBus.js';
+import { renderVisual } from '../utils/animalVisuals.js';
 
 export class OddOneOutGame extends BaseGame {
   constructor(ageGroup = StorageService.getAgeGroup()) {
@@ -20,7 +21,7 @@ export class OddOneOutGame extends BaseGame {
 
     const cardsHtml = level.items.map(item => `
       <div class="odd-card" data-id="${item.id}" data-is-odd="${item.isOdd}" data-name="${item.name}" data-reason="${item.reason}">
-        <span class="odd-emoji">${item.emoji}</span>
+        <span class="odd-emoji">${renderVisual(item.emoji)}</span>
         <span class="odd-name">${item.name}</span>
       </div>
     `).join('');
@@ -29,7 +30,7 @@ export class OddOneOutGame extends BaseGame {
       <div class="play-screen">
         ${this.renderLevelHeader(this.currentLevel, total)}
         <div class="instruction-box" id="speak-box">
-          <button class="speak-icon-btn" aria-label="Ulangi Instruksi">🗣️</button>
+          <button class="speak-icon-btn" aria-label="Ulangi Instruksi">🔈</button>
           <span class="instruction-text">${level.prompt}</span>
         </div>
         <div class="odd-grid">

@@ -3,11 +3,12 @@ import { BaseGame } from './BaseGame.js';
 import { getGameLevels } from '../constants/gameData.js';
 import { StorageService } from '../services/StorageService.js';
 import { eventBus } from '../core/EventBus.js';
+import { renderVisual, visualLabel } from '../utils/animalVisuals.js';
 
 export class PatternMatchGame extends BaseGame {
   constructor(ageGroup = StorageService.getAgeGroup()) {
     const levels = getGameLevels('patterns', ageGroup);
-    const title = ageGroup === '7' ? '🔢 Deret Pola Bilangan' : '🔮 Tebak Pola Ajaib';
+    const title = ageGroup === '7' ? '🔢 Deret Pola Bilangan' : '🔶 Tebak Pola Seru';
     super('patterns', title, levels);
     this.ageGroup = ageGroup;
     this.selectedOption = null;
@@ -22,12 +23,12 @@ export class PatternMatchGame extends BaseGame {
       if (item === '?') {
         return `<div class="pattern-cell target-blank" id="preview-blank">❓</div>`;
       }
-      return `<div class="pattern-cell">${item}</div>`;
+      return `<div class="pattern-cell">${renderVisual(item)}</div>`;
     }).join('');
 
     const optionsHtml = level.options.map(opt => `
-      <button class="pattern-option-btn" data-value="${opt}" aria-label="Pilih ${opt}">
-        ${opt}
+      <button class="pattern-option-btn" data-value="${opt}" aria-label="Pilih ${visualLabel(opt)}">
+        ${renderVisual(opt)}
       </button>
     `).join('');
 
@@ -35,7 +36,7 @@ export class PatternMatchGame extends BaseGame {
       <div class="play-screen">
         ${this.renderLevelHeader(this.currentLevel, total)}
         <div class="instruction-box" id="speak-box">
-          <button class="speak-icon-btn" aria-label="Ulangi Instruksi">🗣️</button>
+          <button class="speak-icon-btn" aria-label="Ulangi Instruksi">🔈</button>
           <span class="instruction-text">${level.prompt}</span>
         </div>
         <div class="pattern-board">
@@ -67,9 +68,9 @@ export class PatternMatchGame extends BaseGame {
         btn.classList.add('selected-choice');
 
         this.selectedOption = btn.getAttribute('data-value');
-        blankCell.textContent = this.selectedOption;
+        blankCell.innerHTML = renderVisual(this.selectedOption);
         blankCell.classList.add('preview-active');
-        eventBus.emit('feedback:cheer', `Kamu memilih ${this.selectedOption}. Klik "Periksa Jawaban" untuk memastikan!`);
+        eventBus.emit('feedback:cheer', `Kamu memilih ${visualLabel(this.selectedOption)}. Klik "Periksa Jawaban" untuk memastikan!`);
       };
       btn.addEventListener('click', clickHandler);
       this.cleanups.push(() => btn.removeEventListener('click', clickHandler));
@@ -96,10 +97,10 @@ export class PatternMatchGame extends BaseGame {
       } else {
         blankCell.classList.remove('target-blank');
         blankCell.classList.add('eval-wrong', 'shake-animation');
-        explanationText = `Kurang tepat. Jawaban yang benar adalah ${level.answer}. ${level.reason}`;
+        explanationText = `Kurang tepat. Jawaban yang benar adalah ${visualLabel(level.answer)}. ${level.reason}`;
         eventBus.emit('feedback:cheer', explanationText);
         setTimeout(() => {
-          blankCell.textContent = level.answer;
+          blankCell.innerHTML = renderVisual(level.answer);
           blankCell.classList.remove('eval-wrong');
           blankCell.classList.add('eval-correct');
         }, 800);
@@ -108,7 +109,7 @@ export class PatternMatchGame extends BaseGame {
       this.onLevelEvaluated({
         isSuccess,
         scorePercent: isSuccess ? 100 : 0,
-        mistakeDetail: isSuccess ? null : `Memilih ${this.selectedOption} (seharusnya ${level.answer})`,
+        mistakeDetail: isSuccess ? null : `Memilih ${visualLabel(this.selectedOption)} (seharusnya ${visualLabel(level.answer)})`,
         explanationText
       });
     };

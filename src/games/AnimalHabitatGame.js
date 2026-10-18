@@ -3,11 +3,12 @@ import { BaseGame } from './BaseGame.js';
 import { getGameLevels } from '../constants/gameData.js';
 import { StorageService } from '../services/StorageService.js';
 import { eventBus } from '../core/EventBus.js';
+import { renderVisual } from '../utils/animalVisuals.js';
 
 export class AnimalHabitatGame extends BaseGame {
   constructor(ageGroup = StorageService.getAgeGroup()) {
     const levels = getGameLevels('animal-habitats', ageGroup);
-    const title = ageGroup === '7' ? '🌿 Rantai Makanan & Siklus Alam' : '🦁 Logika Alam & Hewan';
+    const title = ageGroup === '7' ? '🌿 Rantai Makanan & Siklus Alam' : '🌿 Logika Alam & Hewan';
     super('animal-habitats', title, levels);
     this.ageGroup = ageGroup;
     this.selectedOption = null;
@@ -20,7 +21,7 @@ export class AnimalHabitatGame extends BaseGame {
 
     const optionsHtml = level.options.map(opt => `
       <div class="habitat-option-card" data-id="${opt.id}" data-correct="${opt.isCorrect}" data-name="${opt.name}" data-cheer="${opt.cheer}">
-        <span class="option-emoji">${opt.emoji}</span>
+        <span class="option-emoji">${renderVisual(opt.emoji)}</span>
         <span class="option-text">${opt.name}</span>
       </div>
     `).join('');
@@ -29,12 +30,12 @@ export class AnimalHabitatGame extends BaseGame {
       <div class="play-screen">
         ${this.renderLevelHeader(this.currentLevel, total)}
         <div class="instruction-box" id="speak-box">
-          <button class="speak-icon-btn" aria-label="Ulangi Instruksi">🗣️</button>
+          <button class="speak-icon-btn" aria-label="Ulangi Instruksi">🔈</button>
           <span class="instruction-text">${level.prompt}</span>
         </div>
         <div class="habitat-view">
           <div class="subject-stage">
-            <span class="subject-emoji">${level.subject.emoji}</span>
+            <span class="subject-emoji">${renderVisual(level.subject.emoji)}</span>
             <span class="subject-name">${level.subject.name}</span>
           </div>
           <div class="habitat-options-grid">
