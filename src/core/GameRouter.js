@@ -56,6 +56,7 @@ export class GameRouter {
     const cardsHtml = GAMES_INFO.map((game, index) => {
       const isCompleted = completedGames.includes(game.id);
       const subtitle = isAge7 ? game.subtitleAge7 : game.subtitleAge4;
+      const resumeLevel = StorageService.getResumeLevel(game.id, ageGroup);
 
       if (isCompleted) {
         return `
@@ -72,11 +73,11 @@ export class GameRouter {
       return `
         <div class="game-card" data-id="${game.id}" data-completed="false" style="--card-theme-color: ${game.color};">
           <span class="card-index">${String(index + 1).padStart(2, '0')}</span>
-          <span class="card-badge">${game.badge}</span>
+          <span class="card-badge">${resumeLevel > 0 ? 'Lanjutkan tahap' : game.badge}</span>
           <div class="card-icon">${game.icon}</div>
           <h3 class="card-title">${game.title}</h3>
           <p class="card-desc">${subtitle}</p>
-          <span class="card-action">Mulai bermain <span aria-hidden="true">↗</span></span>
+          <span class="card-action">${resumeLevel > 0 ? `Lanjutkan tahap ${resumeLevel + 1}` : 'Mulai bermain'} <span aria-hidden="true">↗</span></span>
         </div>
       `;
     }).join('');
@@ -152,13 +153,13 @@ export class GameRouter {
         card.addEventListener('click', () => {
           eventBus.emit('sound:pop');
           const gameId = card.getAttribute('data-id');
-          this.launchGame(gameId, 0);
+          this.launchGame(gameId);
         });
       }
     });
   }
 
-  launchGame(gameId, levelIndex = 0) {
+  launchGame(gameId, levelIndex = null) {
     const ageGroup = StorageService.getAgeGroup();
     if (StorageService.isGameCompleted(gameId, ageGroup)) {
       this.showMenu();
@@ -176,9 +177,10 @@ export class GameRouter {
       return;
     }
 
+    const startLevel = levelIndex ?? StorageService.getResumeLevel(gameId, ageGroup);
     this.activeGameInstance = game;
     gameState.currentGame = gameId;
-    gameState.currentLevel = levelIndex;
-    game.mount(this.stage, levelIndex);
+    gameState.currentLevel = startLevel;
+    game.mount(this.stage, startLevel);
   }
 }

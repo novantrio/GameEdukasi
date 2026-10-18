@@ -7,28 +7,28 @@ export const COGNITIVE_DOMAINS = Object.freeze({
     name: 'Visual-Spasial & Geometri',
     description: 'Kemampuan mengenali bentuk geometris, orientasi ruang, karakteristik sisi & sudut.',
     milestoneAge4: 'Mengenal bentuk geometri dasar (lingkaran, segitiga, persegi) dan mencocokkan bentuk dengan bayangannya.',
-    milestoneAge7: 'Menganalisis bangun datar tingkat lanjut (segienam, jajar genjang), bangun ruang (kubus, tabung, bola), dan menghitung simetri/sisi.'
+    milestoneAge7: 'Membedakan bangun datar berdasarkan nama dan jumlah sisi, mengenali bangun ruang, serta mencocokkan gambar dengan istilah geometri.'
   },
   sizes: {
     id: 'sizes',
     name: 'Seriasi & Relasi Kuantitatif',
     description: 'Kemampuan menata urutan benda berdasarkan hierarki bobot, satuan waktu, dan nilai kuantitas.',
     milestoneAge4: 'Mengurutkan 3-4 benda dari ukuran paling kecil ke paling besar secara berurutan.',
-    milestoneAge7: 'Mengurutkan bobot komparatif makhluk hidup, konversi satuan waktu (detik, menit, jam, hari), dan nilai bilangan puluhan.'
+    milestoneAge7: 'Mengurutkan bobot, satuan waktu, panjang, nilai uang, dan bilangan dari kecil ke besar maupun sebaliknya.'
   },
   patterns: {
     id: 'patterns',
     name: 'Penalaran Pola & Logika Induktif',
     description: 'Kemampuan mendeteksi keteraturan pola berulang, barisan bilangan loncat, dan deret aritmatika.',
     milestoneAge4: 'Meniru dan melanjutkan pola urutan warna atau gambar sederhana yang berulang.',
-    milestoneAge7: 'Memecahkan deret bilangan loncat (+2, +5), pola pengurangan mundur berurutan, dan deret pertambahan bertingkat.'
+    milestoneAge7: 'Melanjutkan deret penjumlahan, pengurangan, penggandaan, dan selisih yang bertambah bertahap.'
   },
   'odd-one': {
     id: 'odd-one',
     name: 'Klasifikasi Ilmiah & Taksonomi',
     description: 'Kemampuan mengelompokkan kategori biologis, wujud zat materi, dan sifat fisika isolator/konduktor.',
     milestoneAge4: 'Mengelompokkan benda berdasarkan kategori (hewan/buah/alat transportasi) dan menemukan yang berbeda.',
-    milestoneAge7: 'Mengidentifikasi rantai taksonomi (karnivora vs herbivora, mamalia vs ovipar), wujud materi (cair vs padat), dan isolator panas.'
+    milestoneAge7: 'Mengelompokkan hewan, wujud benda, penghantar panas, alat ukur, serta bangun datar dan ruang.'
   },
   'animal-habitats': {
     id: 'animal-habitats',
@@ -41,8 +41,8 @@ export const COGNITIVE_DOMAINS = Object.freeze({
     id: 'counting',
     name: 'Penalaran Matematika & Pra-Aljabar',
     description: 'Kemampuan memecahkan aljabar visual simbolik, perkalian sebagai penjumlahan berulang, dan pembagian adil.',
-    milestoneAge4: 'Membilang secara berurutan dan menghubungkan jumlah benda 1-5 dengan simbol angka.',
-    milestoneAge7: 'Memecahkan persamaan aljabar visual satu variabel (x + x = 8), logika perkalian kaki hewan, dan pembagian distributif rata.'
+    milestoneAge4: 'Membilang 2-6 benda dan mulai menjumlahkan dua kelompok benda konkret.',
+    milestoneAge7: 'Memecahkan persamaan visual, pengurangan, perkalian kelompok, pembagian rata, dan soal dua langkah sederhana.'
   }
 });
 

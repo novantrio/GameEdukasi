@@ -2297,3 +2297,20 @@ body { color: var(--ink); align-items: stretch; }
   .speech-bubble { border-radius: 15px; padding: 10px 15px; }
   .speech-bubble p { font-size: .95rem; }
 }
+
+/* Visible progression and accurate geometric shapes */
+.level-heading { display: flex; flex-direction: column; align-items: flex-start; gap: 4px; min-width: 0; }
+.level-stage-label { color: var(--forest); font-size: .84rem; font-weight: 900; letter-spacing: .04em; }
+.level-dots { flex-shrink: 0; }
+.shape-visual { display: block; width: 1.14em; height: 1.14em; }
+.slot-shape-name { display: block; max-width: 100%; padding: 8px; text-align: center; color: var(--forest-dark); font-size: .9rem; font-weight: 900; line-height: 1.2; overflow-wrap: anywhere; }
+.shape-slot:has(.slot-shape-name) { background: #eef7f1; border-color: #a9cdb9; }
+.shape-slot:has(.slot-shape-name).occupied { background: #eff6ff; }
+.algebra-text { display: inline-flex; flex-wrap: wrap; align-items: center; justify-content: center; gap: .12em; text-align: center; }
+
+@media (max-width: 640px) {
+  .level-indicator { gap: 8px; }
+  .level-stage-label { font-size: .75rem; }
+  .slot-shape-name { font-size: .72rem; padding: 4px; }
+  .shape-slot, .draggable-shape { flex: 0 0 auto; }
+}

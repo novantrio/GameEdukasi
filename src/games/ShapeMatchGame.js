@@ -5,6 +5,7 @@ import { StorageService } from '../services/StorageService.js';
 import { shuffleArray } from '../utils/dom.js';
 import { makeDraggable } from '../utils/dragDrop.js';
 import { eventBus } from '../core/EventBus.js';
+import { renderShapeVisual } from '../utils/shapeVisuals.js';
 
 export class ShapeMatchGame extends BaseGame {
   constructor(ageGroup = StorageService.getAgeGroup()) {
@@ -23,13 +24,15 @@ export class ShapeMatchGame extends BaseGame {
 
     const targetSlotsHtml = level.items.map((item, index) => `
       <div class="shape-slot" data-slot-index="${index}" data-target-id="${item.id}">
-        <span class="slot-shadow">${item.emoji}</span>
+        ${this.ageGroup === '7'
+          ? `<span class="slot-shape-name">${item.name}</span>`
+          : `<span class="slot-shadow">${renderShapeVisual(item)}</span>`}
       </div>
     `).join('');
 
     const sourceShapesHtml = shuffledSources.map(item => `
       <div class="draggable-shape" role="button" tabindex="0" data-shape-id="${item.id}" id="drag-${item.id}">
-        <span>${item.emoji}</span>
+        <span>${renderShapeVisual(item)}</span>
       </div>
     `).join('');
 
@@ -78,7 +81,7 @@ export class ShapeMatchGame extends BaseGame {
           returnCard.setAttribute('tabindex', '0');
           returnCard.setAttribute('data-shape-id', previousItem.id);
           returnCard.setAttribute('id', `drag-${previousItem.id}`);
-          returnCard.innerHTML = `<span>${previousItem.emoji}</span>`;
+          returnCard.innerHTML = `<span>${renderShapeVisual(previousItem)}</span>`;
           sourcesContainer.appendChild(returnCard);
           this.attachShapeDrag(returnCard, slots, level, sourcesContainer);
         }
@@ -164,7 +167,7 @@ export class ShapeMatchGame extends BaseGame {
         returnCard.setAttribute('tabindex', '0');
         returnCard.setAttribute('data-shape-id', previousItem.id);
         returnCard.setAttribute('id', `drag-${previousItem.id}`);
-        returnCard.innerHTML = `<span>${previousItem.emoji}</span>`;
+        returnCard.innerHTML = `<span>${renderShapeVisual(previousItem)}</span>`;
         sourcesContainer.appendChild(returnCard);
         this.attachShapeDrag(returnCard, slots, level, sourcesContainer);
       }

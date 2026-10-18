@@ -1,9 +1,11 @@
 // src/services/StorageService.js
+import { getGameLevels } from '../constants/gameData.js';
 
 const STARS_KEY = 'kid_logic_stars';
 const PROGRESS_KEY = 'kid_logic_progress';
 const STUDENT_NAME_KEY = 'kid_student_name';
 const AGE_GROUP_KEY = 'kid_selected_age_group';
+const PREVIOUS_LEVEL_COUNTS = { shapes: 3, sizes: 3, patterns: 4, 'odd-one': 4, 'animal-habitats': 4, counting: 4 };
 
 export class StorageService {
   static getAgeGroup() {
@@ -76,12 +78,35 @@ export class StorageService {
   }
 
   static getCompletedGames(age = this.getAgeGroup()) {
+    return this.getRecordedCompletedGames(age).filter(gameId => {
+      const total = getGameLevels(gameId, age).length;
+      return total > 0 && this.getCompletedLevelCount(gameId, age) >= total;
+    });
+  }
+
+  static getRecordedCompletedGames(age = this.getAgeGroup()) {
     try {
       const key = `kid_completed_games_v2_${age}`;
       return JSON.parse(localStorage.getItem(key) || '[]');
     } catch {
       return [];
     }
+  }
+
+  static getCompletedLevelCount(gameId, age = this.getAgeGroup()) {
+    try {
+      const saved = localStorage.getItem(`kid_completed_level_count_${age}_${gameId}`);
+      return saved === null ? (PREVIOUS_LEVEL_COUNTS[gameId] || 0) : parseInt(saved, 10);
+    } catch {
+      return PREVIOUS_LEVEL_COUNTS[gameId] || 0;
+    }
+  }
+
+  static getResumeLevel(gameId, age = this.getAgeGroup()) {
+    const total = getGameLevels(gameId, age).length;
+    const previousCompletion = this.getRecordedCompletedGames(age).includes(gameId)
+      ? this.getCompletedLevelCount(gameId, age) : 0;
+    return Math.min(Math.max(this.getGameProgress(gameId, age), previousCompletion), Math.max(0, total - 1));
   }
 
   static isGameCompleted(gameId, age = this.getAgeGroup()) {
@@ -91,11 +116,12 @@ export class StorageService {
 
   static markGameCompleted(gameId, age = this.getAgeGroup()) {
     try {
-      const list = this.getCompletedGames(age);
+      const list = this.getRecordedCompletedGames(age);
       if (!list.includes(gameId)) {
         list.push(gameId);
         localStorage.setItem(`kid_completed_games_v2_${age}`, JSON.stringify(list));
       }
+      localStorage.setItem(`kid_completed_level_count_${age}_${gameId}`, String(getGameLevels(gameId, age).length));
     } catch (e) {
       console.warn('Storage mark completed error:', e);
     }
@@ -104,6 +130,10 @@ export class StorageService {
   static resetCompletedGames(age = this.getAgeGroup()) {
     try {
       localStorage.removeItem(`kid_completed_games_v2_${age}`);
+      Object.keys(PREVIOUS_LEVEL_COUNTS).forEach(gameId => {
+        localStorage.removeItem(`kid_completed_level_count_${age}_${gameId}`);
+        localStorage.removeItem(`kid_progress_${age}_${gameId}`);
+      });
     } catch (e) {
       console.warn('Storage reset completed error:', e);
     }

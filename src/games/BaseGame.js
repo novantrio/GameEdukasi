@@ -17,8 +17,10 @@ export class BaseGame {
   mount(container, levelIndex = 0) {
     this.container = container;
     this.currentLevel = levelIndex;
+    gameState.currentLevel = levelIndex;
     this.isTransitioning = false;
     this.levelStartTime = Date.now();
+    StorageService.saveGameProgress(this.gameId, levelIndex, this.ageGroup);
 
     if (this.container) {
       this.container.style.pointerEvents = '';
@@ -43,6 +45,7 @@ export class BaseGame {
   }
 
   renderLevelHeader(current, total) {
+    const stageNames = ['Pengenalan', 'Latihan', 'Penguatan', 'Penerapan', 'Pengayaan', 'Tantangan akhir'];
     const dotsHtml = Array.from({ length: total }, (_, i) => {
       const cls = i < current ? 'dot completed' : i === current ? 'dot active' : 'dot';
       return `<span class="${cls}"></span>`;
@@ -50,10 +53,11 @@ export class BaseGame {
 
     return `
       <div class="level-indicator">
-        <div class="game-title-tag">
-          <span>${this.title}</span>
+        <div class="level-heading">
+          <div class="game-title-tag"><span>${this.title}</span></div>
+          <span class="level-stage-label">Tahap ${current + 1} dari ${total} · ${stageNames[current] || 'Latihan lanjutan'}</span>
         </div>
-        <div class="level-dots">
+        <div class="level-dots" role="progressbar" aria-label="Kemajuan tahap" aria-valuemin="0" aria-valuemax="${total}" aria-valuenow="${current + 1}">
           ${dotsHtml}
         </div>
       </div>
@@ -107,7 +111,7 @@ export class BaseGame {
         if (this.container) {
           this.container.style.pointerEvents = '';
         }
-        StorageService.markGameCompleted(this.gameId);
+        StorageService.markGameCompleted(this.gameId, this.ageGroup);
         eventBus.emit('game:celebrate', {
           title: 'TUGAS SELESAI! 🎓',
           desc: 'Tugas ini telah selesai dikerjakan dan dinilai. Tugas ini dinonaktifkan di menu agar hasil asesmen objektif.',

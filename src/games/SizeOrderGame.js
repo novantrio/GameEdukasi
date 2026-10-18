@@ -130,7 +130,9 @@ export class SizeOrderGame extends BaseGame {
 
       let explanationText = '';
       if (isSuccess) {
-        explanationText = 'Luar biasa! Urutan dari yang paling kecil ke paling besar sudah tepat!';
+        explanationText = level.type === 'descending'
+          ? 'Luar biasa! Urutan dari yang paling besar ke paling kecil sudah tepat!'
+          : 'Luar biasa! Urutan dari yang paling kecil ke paling besar sudah tepat!';
         eventBus.emit('feedback:cheer', explanationText);
       } else {
         explanationText = `Kamu berhasil mengurutkan ${correctCount} dari ${slotsCount} posisi dengan benar. Ayo perhatikan perbedaan ukuran dengan teliti!`;
