@@ -16,6 +16,13 @@ export class SizeOrderGame extends BaseGame {
     this.slotPlacements = new Map(); // slotIndex -> item
   }
 
+  renderItemContents(item) {
+    return `
+      <span class="size-item-visual" style="--visual-size: ${(item.scale * 3.15).toFixed(3)}rem; --visual-size-mobile: ${(item.scale * 2.1).toFixed(3)}rem;">${renderVisual(item.emoji)}</span>
+      ${item.label ? `<span class="size-item-label">${item.label}</span>` : ''}
+    `;
+  }
+
   render() {
     const level = this.levels[this.currentLevel];
     const total = this.levels.length;
@@ -30,9 +37,8 @@ export class SizeOrderGame extends BaseGame {
 
     const shuffledItems = shuffleArray(level.items);
     const itemsHtml = shuffledItems.map(item => `
-      <div class="draggable-size-item" role="button" tabindex="0" data-id="${item.id}" data-rank="${item.sizeRank}" style="font-size: ${item.scale * 3.5}rem;">
-        <span>${renderVisual(item.emoji)}</span>
-        ${item.label ? `<span class="size-item-label">${item.label}</span>` : ''}
+      <div class="draggable-size-item" role="button" tabindex="0" data-id="${item.id}" data-rank="${item.sizeRank}">
+        ${this.renderItemContents(item)}
       </div>
     `).join('');
 
@@ -79,14 +85,13 @@ export class SizeOrderGame extends BaseGame {
           returnCard.setAttribute('tabindex', '0');
           returnCard.setAttribute('data-id', previousItem.id);
           returnCard.setAttribute('data-rank', previousItem.sizeRank);
-          returnCard.style.fontSize = `${previousItem.scale * 3.5}rem`;
-          returnCard.innerHTML = `<span>${renderVisual(previousItem.emoji)}</span>${previousItem.label ? `<span class="size-item-label">${previousItem.label}</span>` : ''}`;
+          returnCard.innerHTML = this.renderItemContents(previousItem);
           pool.appendChild(returnCard);
           this.attachSizeDrag(returnCard, slots, level, pool);
         }
 
         targetSlot.classList.add('occupied');
-        targetSlot.innerHTML = droppedEl.innerHTML;
+        targetSlot.innerHTML = `<span class="slot-label-tag">Urutan ${slotIndex + 1}</span>${droppedEl.innerHTML}`;
         this.slotPlacements.set(slotIndex, itemObj);
         droppedEl.remove();
 
@@ -165,14 +170,13 @@ export class SizeOrderGame extends BaseGame {
         returnCard.setAttribute('tabindex', '0');
         returnCard.setAttribute('data-id', previousItem.id);
         returnCard.setAttribute('data-rank', previousItem.sizeRank);
-        returnCard.style.fontSize = `${previousItem.scale * 3.5}rem`;
-        returnCard.innerHTML = `<span>${renderVisual(previousItem.emoji)}</span>${previousItem.label ? `<span class="size-item-label">${previousItem.label}</span>` : ''}`;
+        returnCard.innerHTML = this.renderItemContents(previousItem);
         pool.appendChild(returnCard);
         this.attachSizeDrag(returnCard, slots, level, pool);
       }
 
       targetSlot.classList.add('occupied');
-      targetSlot.innerHTML = droppedEl.innerHTML;
+      targetSlot.innerHTML = `<span class="slot-label-tag">Urutan ${slotIndex + 1}</span>${droppedEl.innerHTML}`;
       this.slotPlacements.set(slotIndex, itemObj);
       droppedEl.remove();
 

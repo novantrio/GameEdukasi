@@ -574,6 +574,8 @@ body {
 }
 
 .size-slot {
+  position: relative;
+  padding: 20px 4px 5px;
   flex: 1;
   max-width: 140px;
   height: 140px;
@@ -625,6 +627,14 @@ body {
   touch-action: none;
   padding: 12px;
   transition: transform 0.2s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.2s;
+}
+
+.size-item-visual {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: var(--visual-size, 3rem);
+  line-height: 1;
 }
 
 .draggable-size-item:hover {
@@ -1747,6 +1757,9 @@ body {
   color: #64748b;
   position: absolute;
   top: 6px;
+  left: 50%;
+  transform: translateX(-50%);
+  white-space: nowrap;
 }
 
 .target-blank.preview-active {
@@ -2313,4 +2326,6 @@ body { color: var(--ink); align-items: stretch; }
   .level-stage-label { font-size: .75rem; }
   .slot-shape-name { font-size: .72rem; padding: 4px; }
   .shape-slot, .draggable-shape { flex: 0 0 auto; }
+  .size-item-visual { font-size: var(--visual-size-mobile, 2.1rem); }
+  .size-slot { height: 112px; }
 }
