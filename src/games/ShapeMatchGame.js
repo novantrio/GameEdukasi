@@ -22,16 +22,14 @@ export class ShapeMatchGame extends BaseGame {
     this.slotPlacements.clear();
 
     const targetSlotsHtml = level.items.map((item, index) => `
-      <div class="shape-slot" data-slot-index="${index}" data-target-id="${item.id}" title="Bayangan untuk ${item.name}">
+      <div class="shape-slot" data-slot-index="${index}" data-target-id="${item.id}">
         <span class="slot-shadow">${item.emoji}</span>
-        ${this.ageGroup === '7' ? `<span class="slot-title-tag">${item.name}</span>` : ''}
       </div>
     `).join('');
 
     const sourceShapesHtml = shuffledSources.map(item => `
-      <div class="draggable-shape" role="button" tabindex="0" data-shape-id="${item.id}" id="drag-${item.id}" title="${item.name}">
+      <div class="draggable-shape" role="button" tabindex="0" data-shape-id="${item.id}" id="drag-${item.id}">
         <span>${item.emoji}</span>
-        ${this.ageGroup === '7' ? `<span class="item-name-tag">${item.name}</span>` : ''}
       </div>
     `).join('');
 
@@ -80,8 +78,7 @@ export class ShapeMatchGame extends BaseGame {
           returnCard.setAttribute('tabindex', '0');
           returnCard.setAttribute('data-shape-id', previousItem.id);
           returnCard.setAttribute('id', `drag-${previousItem.id}`);
-          returnCard.setAttribute('title', previousItem.name);
-          returnCard.innerHTML = `<span>${previousItem.emoji}</span>${this.ageGroup === '7' ? `<span class="item-name-tag">${previousItem.name}</span>` : ''}`;
+          returnCard.innerHTML = `<span>${previousItem.emoji}</span>`;
           sourcesContainer.appendChild(returnCard);
           this.attachShapeDrag(returnCard, slots, level, sourcesContainer);
         }
@@ -167,8 +164,7 @@ export class ShapeMatchGame extends BaseGame {
         returnCard.setAttribute('tabindex', '0');
         returnCard.setAttribute('data-shape-id', previousItem.id);
         returnCard.setAttribute('id', `drag-${previousItem.id}`);
-        returnCard.setAttribute('title', previousItem.name);
-        returnCard.innerHTML = `<span>${previousItem.emoji}</span>${this.ageGroup === '7' ? `<span class="item-name-tag">${previousItem.name}</span>` : ''}`;
+        returnCard.innerHTML = `<span>${previousItem.emoji}</span>`;
         sourcesContainer.appendChild(returnCard);
         this.attachShapeDrag(returnCard, slots, level, sourcesContainer);
       }

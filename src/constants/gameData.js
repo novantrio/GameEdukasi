@@ -90,28 +90,28 @@ export const SHAPE_LEVELS_AGE_4 = Object.freeze([
 
 export const SHAPE_LEVELS_AGE_7 = Object.freeze([
   {
-    prompt: 'Pasangkan bangun datar tingkat lanjut: Segienam, Persegi Panjang, dan Jajar Genjang!',
+    prompt: 'Pasangkan bangun datar ke bayangannya yang cocok!',
     items: [
-      { id: 'hexagon', name: 'Segienam (Hexagon 6 Sisi)', emoji: '🛑' },
-      { id: 'rectangle', name: 'Persegi Panjang (4 Sisi)', emoji: '📱' },
-      { id: 'rhombus', name: 'Belah Ketupat (Wajik Simetris)', emoji: '🔷' }
+      { id: 'hexagon', name: 'Segienam', emoji: '🛑' },
+      { id: 'rectangle', name: 'Persegi Panjang', emoji: '📱' },
+      { id: 'rhombus', name: 'Belah Ketupat', emoji: '🔷' }
     ]
   },
   {
-    prompt: 'Pasangkan bangun ruang: Kubus, Tabung/Silinder, dan Kerucut!',
+    prompt: 'Pasangkan bentuk bangun ruang ke bayangan yang sesuai!',
     items: [
-      { id: 'cube', name: 'Kubus (6 Sisi Persegi)', emoji: '🧊' },
-      { id: 'cylinder', name: 'Tabung / Silinder (2 Lingkaran)', emoji: '🥫' },
-      { id: 'cone', name: 'Kerucut (Alas Lingkaran & Titik Puncak)', emoji: '🍦' }
+      { id: 'cube', name: 'Kubus', emoji: '🧊' },
+      { id: 'cylinder', name: 'Tabung', emoji: '🥫' },
+      { id: 'cone', name: 'Kerucut', emoji: '🍦' }
     ]
   },
   {
-    prompt: 'Cocokkan bangun berdasarkan karakteristik jumlah sisinya: 3 Sisi, 4 Sisi, 5 Sisi, dan 6 Sisi!',
+    prompt: 'Cocokkan bangun ke bentuk bayangannya!',
     items: [
-      { id: 'side-3', name: 'Segitiga (Tiga Sisi)', emoji: '🔺' },
-      { id: 'side-4', name: 'Persegi (Empat Sisi Sama)', emoji: '⏹️' },
-      { id: 'side-5', name: 'Segilima / Pentagon (Lima Sisi)', emoji: '⬟' },
-      { id: 'side-6', name: 'Segienam / Hexagon (Enam Sisi)', emoji: '🛑' }
+      { id: 'side-3', name: 'Segitiga', emoji: '🔺' },
+      { id: 'side-4', name: 'Persegi', emoji: '⏹️' },
+      { id: 'side-5', name: 'Segilima', emoji: '⬟' },
+      { id: 'side-6', name: 'Segienam', emoji: '🛑' }
     ]
   }
 ]);
@@ -124,28 +124,28 @@ export const SIZE_LEVELS_AGE_4 = Object.freeze([
     prompt: 'Urutkan beruang dari yang PALING KECIL ke PALING BESAR!',
     type: 'ascending',
     items: [
-      { id: 'bear-m', label: 'Beruang Sedang', sizeRank: 2, scale: 0.8, emoji: '🧸' },
-      { id: 'bear-s', label: 'Beruang Kecil', sizeRank: 1, scale: 0.55, emoji: '🧸' },
-      { id: 'bear-l', label: 'Beruang Besar', sizeRank: 3, scale: 1.1, emoji: '🧸' }
+      { id: 'bear-m', label: '', sizeRank: 2, scale: 0.8, emoji: '🧸' },
+      { id: 'bear-s', label: '', sizeRank: 1, scale: 0.55, emoji: '🧸' },
+      { id: 'bear-l', label: '', sizeRank: 3, scale: 1.1, emoji: '🧸' }
     ]
   },
   {
     prompt: 'Urutkan apel manis dari PALING KECIL ke PALING BESAR!',
     type: 'ascending',
     items: [
-      { id: 'apple-l', label: 'Apel Besar', sizeRank: 3, scale: 1.1, emoji: '🍎' },
-      { id: 'apple-s', label: 'Apel Kecil', sizeRank: 1, scale: 0.55, emoji: '🍎' },
-      { id: 'apple-m', label: 'Apel Sedang', sizeRank: 2, scale: 0.8, emoji: '🍎' }
+      { id: 'apple-l', label: '', sizeRank: 3, scale: 1.1, emoji: '🍎' },
+      { id: 'apple-s', label: '', sizeRank: 1, scale: 0.55, emoji: '🍎' },
+      { id: 'apple-m', label: '', sizeRank: 2, scale: 0.8, emoji: '🍎' }
     ]
   },
   {
     prompt: 'Urutkan 4 bintang ini dari KECIL ke BESAR!',
     type: 'ascending',
     items: [
-      { id: 'star-4', label: 'Sangat Besar', sizeRank: 4, scale: 1.25, emoji: '⭐' },
-      { id: 'star-1', label: 'Paling Kecil', sizeRank: 1, scale: 0.5, emoji: '⭐' },
-      { id: 'star-3', label: 'Besar', sizeRank: 3, scale: 1.0, emoji: '⭐' },
-      { id: 'star-2', label: 'Sedang', sizeRank: 2, scale: 0.75, emoji: '⭐' }
+      { id: 'star-4', label: '', sizeRank: 4, scale: 1.25, emoji: '⭐' },
+      { id: 'star-1', label: '', sizeRank: 1, scale: 0.5, emoji: '⭐' },
+      { id: 'star-3', label: '', sizeRank: 3, scale: 1.0, emoji: '⭐' },
+      { id: 'star-2', label: '', sizeRank: 2, scale: 0.75, emoji: '⭐' }
     ]
   }
 ]);
@@ -154,28 +154,28 @@ export const SIZE_LEVELS_AGE_7 = Object.freeze([
   {
     prompt: 'Urutkan makhluk hidup ini dari bobot PALING RINGAN ke PALING BERAT!',
     items: [
-      { id: 'w-cat', label: 'Kucing (Sedang)', sizeRank: 2, scale: 0.75, emoji: '🐱' },
-      { id: 'w-ant', label: 'Semut (Paling Ringan)', sizeRank: 1, scale: 0.5, emoji: '🐜' },
-      { id: 'w-elephant', label: 'Gajah (Paling Berat)', sizeRank: 4, scale: 1.25, emoji: '🐘' },
-      { id: 'w-horse', label: 'Kuda (Berat)', sizeRank: 3, scale: 1.0, emoji: '🐴' }
+      { id: 'w-cat', label: 'Kucing', sizeRank: 2, scale: 0.75, emoji: '🐱' },
+      { id: 'w-ant', label: 'Semut', sizeRank: 1, scale: 0.5, emoji: '🐜' },
+      { id: 'w-elephant', label: 'Gajah', sizeRank: 4, scale: 1.25, emoji: '🐘' },
+      { id: 'w-horse', label: 'Kuda', sizeRank: 3, scale: 1.0, emoji: '🐴' }
     ]
   },
   {
-    prompt: 'Urutkan nilai bilangan puluhan ini dari TERKECIL ke TERBESAR!',
+    prompt: 'Urutkan bilangan ini dari TERKECIL ke TERBESAR!',
     items: [
-      { id: 'num-65', label: 'Nilai 65', sizeRank: 3, scale: 0.95, emoji: '6️⃣5️⃣' },
-      { id: 'num-18', label: 'Nilai 18', sizeRank: 1, scale: 0.65, emoji: '1️⃣8️⃣' },
-      { id: 'num-94', label: 'Nilai 94', sizeRank: 4, scale: 1.15, emoji: '9️⃣4️⃣' },
-      { id: 'num-42', label: 'Nilai 42', sizeRank: 2, scale: 0.8, emoji: '4️⃣2️⃣' }
+      { id: 'num-65', label: '65', sizeRank: 3, scale: 0.95, emoji: '6️⃣5️⃣' },
+      { id: 'num-18', label: '18', sizeRank: 1, scale: 0.65, emoji: '1️⃣8️⃣' },
+      { id: 'num-94', label: '94', sizeRank: 4, scale: 1.15, emoji: '9️⃣4️⃣' },
+      { id: 'num-42', label: '42', sizeRank: 2, scale: 0.8, emoji: '4️⃣2️⃣' }
     ]
   },
   {
     prompt: 'Urutkan satuan waktu dari yang PALING SINGKAT ke PALING PANJANG!',
     items: [
-      { id: 't-hour', label: 'Satu Jam (60 Menit)', sizeRank: 3, scale: 0.95, emoji: '⏰' },
-      { id: 't-sec', label: 'Satu Detik (Paling Singkat)', sizeRank: 1, scale: 0.55, emoji: '⏱️' },
-      { id: 't-day', label: 'Satu Hari (24 Jam)', sizeRank: 4, scale: 1.2, emoji: '📅' },
-      { id: 't-min', label: 'Satu Menit (60 Detik)', sizeRank: 2, scale: 0.75, emoji: '⏳' }
+      { id: 't-hour', label: '1 Jam', sizeRank: 3, scale: 0.95, emoji: '⏰' },
+      { id: 't-sec', label: '1 Detik', sizeRank: 1, scale: 0.55, emoji: '⏱️' },
+      { id: 't-day', label: '1 Hari', sizeRank: 4, scale: 1.2, emoji: '📅' },
+      { id: 't-min', label: '1 Menit', sizeRank: 2, scale: 0.75, emoji: '⏳' }
     ]
   }
 ]);
@@ -216,28 +216,28 @@ export const PATTERN_LEVELS_AGE_4 = Object.freeze([
 
 export const PATTERN_LEVELS_AGE_7 = Object.freeze([
   {
-    prompt: 'Deret Bilangan Loncat Dua: 2, 4, 6, 8, ... Berapakah angka selanjutnya?',
+    prompt: 'Perhatikan deret bilangan berikut: 2, 4, 6, 8, ... Berapakah angka selanjutnya?',
     sequence: ['2', '4', '6', '8', '?'],
     options: ['9', '10', '12'],
     answer: '10',
     reason: 'Pola selalu bertambah 2 di setiap langkah (2, 4, 6, 8, 10)!'
   },
   {
-    prompt: 'Deret Bilangan Loncat Lima: 5, 10, 15, 20, ... Berapakah angka selanjutnya?',
+    prompt: 'Perhatikan deret bilangan berikut: 5, 10, 15, 20, ... Berapakah angka selanjutnya?',
     sequence: ['5', '10', '15', '20', '?'],
     options: ['22', '25', '30'],
     answer: '25',
     reason: 'Pola bertambah 5 di setiap langkah (kelipatan lima: 5, 10, 15, 20, 25)!'
   },
   {
-    prompt: 'Deret Mundur Pengurangan: 30, 25, 20, 15, ... Berapa angka berikutnya?',
+    prompt: 'Perhatikan pola bilangan berikut: 30, 25, 20, 15, ... Angka berapa selanjutnya?',
     sequence: ['30', '25', '20', '15', '?'],
     options: ['12', '10', '5'],
     answer: '10',
     reason: 'Pola berkurang 5 setiap langkah (30 - 5 = 25 - 5 = 20 - 5 = 15 - 5 = 10)!'
   },
   {
-    prompt: 'Deret Bertingkat: 1, 3, 6, 10, ... (+2, +3, +4, +5). Angka berapa selanjutnya?',
+    prompt: 'Perhatikan pola bilangan berikut: 1, 3, 6, 10, ... Angka berapakah yang mengisi tanda tanya?',
     sequence: ['1', '3', '6', '10', '?'],
     options: ['14', '15', '18'],
     answer: '15',
@@ -289,12 +289,12 @@ export const ODD_ONE_LEVELS_AGE_4 = Object.freeze([
 
 export const ODD_ONE_LEVELS_AGE_7 = Object.freeze([
   {
-    prompt: 'Pilih hewan KARNIVORA (pemakan daging), di antara hewan herbivora pemakan rumput!',
+    prompt: 'Pilih hewan KARNIVORA (pemakan daging), di antara hewan-hewan pemakan rumput!',
     items: [
-      { id: 'cow', emoji: '🐮', name: 'Sapi (Herbivora)', isOdd: false, reason: 'Sapi memakan rumput dan tumbuhan' },
-      { id: 'rabbit', emoji: '🐰', name: 'Kelinci (Herbivora)', isOdd: false, reason: 'Kelinci memakan sayur dan wortel' },
-      { id: 'tiger', emoji: '🐅', name: 'Harimau (Karnivora)', isOdd: true, reason: 'Harimau adalah karnivora pemburu daging, bukan herbivora!' },
-      { id: 'goat', emoji: '🐐', name: 'Kambing (Herbivora)', isOdd: false, reason: 'Kambing memakan dedaunan rumput' }
+      { id: 'cow', emoji: '🐮', name: 'Sapi', isOdd: false, reason: 'Sapi memakan rumput dan tumbuhan' },
+      { id: 'rabbit', emoji: '🐰', name: 'Kelinci', isOdd: false, reason: 'Kelinci memakan sayur dan wortel' },
+      { id: 'tiger', emoji: '🐅', name: 'Harimau', isOdd: true, reason: 'Harimau adalah karnivora pemburu daging, bukan herbivora!' },
+      { id: 'goat', emoji: '🐐', name: 'Kambing', isOdd: false, reason: 'Kambing memakan dedaunan rumput' }
     ]
   },
   {
@@ -307,21 +307,21 @@ export const ODD_ONE_LEVELS_AGE_7 = Object.freeze([
     ]
   },
   {
-    prompt: 'Pilih satu hewan MAMALIA (melahirkan & menyusui) di antara hewan yang bertelur (ovipar)!',
+    prompt: 'Pilih satu hewan MAMALIA (melahirkan & menyusui) di antara hewan yang bertelur!',
     items: [
-      { id: 'chicken', emoji: '🐔', name: 'Ayam (Bertelur)', isOdd: false, reason: 'Ayam berkembang biak dengan bertelur' },
-      { id: 'duck', emoji: '🦆', name: 'Bebek (Bertelur)', isOdd: false, reason: 'Bebek berkembang biak dengan bertelur' },
-      { id: 'cat-mam', emoji: '🐱', name: 'Kucing (Mamalia)', isOdd: true, reason: 'Kucing adalah mamalia yang melahirkan anak dan menyusuinya!' },
-      { id: 'turtle', emoji: '🐢', name: 'Penyu (Bertelur)', isOdd: false, reason: 'Penyu berkembang biak dengan bertelur di pasir' }
+      { id: 'chicken', emoji: '🐔', name: 'Ayam', isOdd: false, reason: 'Ayam berkembang biak dengan bertelur' },
+      { id: 'duck', emoji: '🦆', name: 'Bebek', isOdd: false, reason: 'Bebek berkembang biak dengan bertelur' },
+      { id: 'cat-mam', emoji: '🐱', name: 'Kucing', isOdd: true, reason: 'Kucing adalah mamalia yang melahirkan anak dan menyusuinya!' },
+      { id: 'turtle', emoji: '🐢', name: 'Penyu', isOdd: false, reason: 'Penyu berkembang biak dengan bertelur di pasir' }
     ]
   },
   {
     prompt: 'Pilih benda ISOLATOR (bukan penghantar panas) di antara logam konduktor!',
     items: [
-      { id: 'spoon', emoji: '🥄', name: 'Sendok Logam (Konduktor)', isOdd: false, reason: 'Menghantarkan panas cepat' },
-      { id: 'nail', emoji: '🔩', name: 'Paku Besi (Konduktor)', isOdd: false, reason: 'Menghantarkan panas cepat' },
-      { id: 'eraser', emoji: '🧼', name: 'Karet / Kayu (Isolator)', isOdd: true, reason: 'Karet adalah isolator yang menahan aliran panas dan listrik!' },
-      { id: 'key', emoji: '🗝️', name: 'Kunci Tembaga (Konduktor)', isOdd: false, reason: 'Menghantarkan panas cepat' }
+      { id: 'spoon', emoji: '🥄', name: 'Sendok Logam', isOdd: false, reason: 'Menghantarkan panas cepat' },
+      { id: 'nail', emoji: '🔩', name: 'Paku Besi', isOdd: false, reason: 'Menghantarkan panas cepat' },
+      { id: 'eraser', emoji: '🧼', name: 'Penghapus Karet', isOdd: true, reason: 'Karet adalah isolator yang menahan aliran panas dan listrik!' },
+      { id: 'key', emoji: '🗝️', name: 'Kunci Tembaga', isOdd: false, reason: 'Menghantarkan panas cepat' }
     ]
   }
 ]);
@@ -443,29 +443,29 @@ export const COUNTING_LEVELS_AGE_4 = Object.freeze([
 
 export const COUNTING_LEVELS_AGE_7 = Object.freeze([
   {
-    prompt: 'Aljabar Visual: Apel + Apel = 8 (🍎 + 🍎 = 8). Berapakah nilai 1 buah apel 🍎?',
+    prompt: 'Teka-Teki Logika: Berapakah nilai satu buah apel 🍎?',
     equationText: '🍎 + 🍎 = 8',
     count: 4,
     options: [3, 4, 5],
     speech: 'Hebat! Empat ditambah empat sama dengan delapan, jadi nilai apel adalah 4!'
   },
   {
-    prompt: 'Nilai Apel = 4. Jika Apel + Pisang = 9 (4 + 🍌 = 9), berapakah nilai pisang 🍌?',
+    prompt: 'Jika nilai 🍎 = 4, berapakah nilai satu buah pisang 🍌?',
     equationText: '4 + 🍌 = 9',
     count: 5,
     options: [4, 5, 6],
     speech: 'Tepat sekali! Sembilan dikurangi empat adalah 5, jadi nilai pisang adalah 5!'
   },
   {
-    prompt: 'Perkalian Logika: Ada 3 ekor ayam (🐔 🐔 🐔). Setiap ayam punya 2 kaki. Berapa jumlah kaki seluruhnya?',
-    equationText: '3 ayam × 2 kaki',
+    prompt: 'Ada 3 ekor ayam (🐔 🐔 🐔). Jika setiap ayam memiliki 2 kaki, berapakah jumlah seluruh kaki ayam?',
+    equationText: '🐔 🐔 🐔',
     count: 6,
     options: [5, 6, 8],
     speech: 'Luar biasa! Tiga dikali dua sama dengan 6 pasang kaki ayam!'
   },
   {
-    prompt: 'Pembagian Adil: Ada 10 permen manis (🍬 × 10) dibagikan rata untuk 2 orang anak. Berapa permen yang diterima tiap anak?',
-    equationText: '10 permen ÷ 2 anak',
+    prompt: 'Ada 10 permen manis dibagikan sama rata untuk 2 orang anak. Berapa permen yang diterima tiap anak?',
+    equationText: '🍬 × 10  ➔  👧 👦',
     count: 5,
     options: [4, 5, 6],
     speech: 'Pintar! Sepuluh dibagi dua sama dengan lima permen untuk masing-masing anak!'

@@ -2123,24 +2123,6 @@ body {
   pointer-events: none;
 }
 
-.slot-title-tag,
-.item-name-tag {
-  font-size: 0.7rem;
-  font-weight: 800;
-  color: #334155;
-  background: rgba(255, 255, 255, 0.9);
-  border: 1px solid #cbd5e1;
-  padding: 2px 6px;
-  border-radius: 6px;
-  margin-top: 4px;
-  max-width: 90%;
-  text-align: center;
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  pointer-events: none;
-}
-
 @media (max-width: 640px) {
   .header-age-pill {
     padding: 4px 8px;
